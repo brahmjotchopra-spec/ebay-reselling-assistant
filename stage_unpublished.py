@@ -26,17 +26,38 @@ def run():
     existing = api.item(STAGE_SKU)
     print("STEP: inspect existing offers", flush=True)
     offers = api.offers(STAGE_SKU)
-    if offers:
-        if len(offers) != 1 or offers[0].get("status") != "UNPUBLISHED":
-            raise DraftError("SKU exists in an unexpected offer state. Nothing changed.")
-        print("Existing NON-LIVE eBay offer found for SKU " + STAGE_SKU)
-        print("Offer ID:", offers[0].get("offerId", "not returned"))
-        return
     inventory = {
-        "product": {"title": row["title"], "description": row["description"]},
+        "product": {
+            "title": row["title"],
+            "description": row["description"],
+            "imageUrls": [
+                "https://www.godropship.co.uk/uploadfile/images/598808/2025-03/2025-03-05CR-tsgpdot8yn.jpg"
+            ],
+            "aspects": {
+                "Brand": ["Unbranded"],
+                "Type": ["Windscreen Cover"],
+                "Colour": ["Silver"],
+                "Material": ["Cotton, Aluminium Film"],
+                "Placement on Vehicle": ["Front"],
+                "Size": ["150 x 70 cm"],
+            }
+        },
         "condition": "NEW",
         "availability": {"shipToLocationAvailability": {"quantity": 0}},
     }
+    if offers:
+        if len(offers) != 1 or offers[0].get("status") != "UNPUBLISHED":
+            raise DraftError("SKU exists in an unexpected offer state. Nothing changed.")
+        if existing is None or existing.get("sku") != STAGE_SKU:
+            raise DraftError("Missing inventory for existing offer.")
+        if existing.get("availability", {}).get("shipToLocationAvailability", {}).get("quantity") != 0:
+            raise DraftError("Existing inventory quantity not zero; refusing changes.")
+        if not existing.get("product", {}).get("imageUrls"):
+            print("STEP: enrich NON-LIVE inventory with supplier image and specifics", flush=True)
+            api.create_item(STAGE_SKU, inventory)
+        print("Existing NON-LIVE eBay offer found for SKU " + STAGE_SKU)
+        print("Offer ID:", offers[0].get("offerId", "not returned"))
+        return
     if existing is not None:
         if existing.get("sku") != STAGE_SKU or (
             existing.get("product", {}).get("title") != row["title"]
