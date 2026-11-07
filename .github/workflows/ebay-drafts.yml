@@ -11,6 +11,7 @@ on:
       - stage_unpublished.py
       - seller_readiness.py
       - create_free_postage_policy.py
+      - attach_offer_policies.py
       - 'tests/**'
   workflow_dispatch:
     inputs:
@@ -52,6 +53,12 @@ jobs:
         env:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
         run: python3 create_free_postage_policy.py
+      - name: Attach business policies to non-live zero-stock offer
+        if: github.event_name == 'push'
+        continue-on-error: true
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+        run: python3 attach_offer_policies.py
       - name: Audit seller policies and inventory location (read-only)
         if: github.event_name == 'push'
         continue-on-error: true
