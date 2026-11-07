@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "sku": "CAR-46787",
+    "title": "Car Windscreen Frost Cover 150x70cm Silver Ice Snow Sun Shade Protector",
+    "description": "Silver foldable windscreen frost protector 150 x 70 cm. Check windscreen dimensions before purchase.",
+    "condition": "NEW",
+    "category_id": "",
+    "price_gbp": "11.49",
+    "approved_for_unpublished_offer": false,
+    "commercial_review": {
+      "verified": false,
+      "checked_on": "2026-11-07",
+      "stock": 0,
+      "supplier_url": "https://www.godropship.co.uk/car-windscreen-windshield-frost-cover-ice-snow-shield-front-window-protector-sunshade-38992",
+      "demand_url": "https://www.ebay.co.uk/itm/357640443602",
+      "delivery_terms": "Pending supplier confirmation. Do not promise dispatch.",
+      "wholesale_inc_vat": "0.00",
+      "delivery_inc_vat": "0.00",
+      "supplier_payment_fee": "0.00",
+      "ebay_percent": "9.85",
+      "fee_vat_percent": "20",
+      "per_order_ex_vat": "0.40",
+      "insertion_ex_vat": "0.30",
+      "reserve_gbp": "0.59"
+    },
+    "review_note": "HOLD: same-size competitors at £4.95-£7.49, some with sales. Public supplier wholesale £3.99 appears ex-VAT; shipping terms conflict. At £11.49 estimated profit £3.51 under optimistic postage assumption, below safe margin after uncertainty. Product not approved."
+  },
+  {
+    "sku": "BR_30531",
+    "title": "Christmas Movie Rounded Mug Ceramic Gingerbread Candy Cane Handle",
+    "description": "Seasonal ceramic rounded Christmas movie mug with gingerbread theme and candy cane handle. Check supplier product specifications before publication.",
+    "condition": "NEW",
+    "category_id": "",
+    "price_gbp": "17.95",
+    "approved_for_unpublished_offer": false,
+    "commercial_review": {
+      "verified": false,
+      "checked_on": "2026-11-07",
+      "stock": 0,
+      "supplier_url": "https://www.somethingdifferentwholesale.co.uk/Assets/Downloads/BR_30531-ProductTechnicalFile.pdf",
+      "demand_url": "https://www.ebay.co.uk/itm/377592874239",
+      "delivery_terms": "Pending supplier confirmation. Do not promise dispatch.",
+      "wholesale_inc_vat": "0.00",
+      "delivery_inc_vat": "0.00",
+      "supplier_payment_fee": "0.00",
+      "ebay_percent": "12.25",
+      "fee_vat_percent": "20",
+      "per_order_ex_vat": "0.40",
+      "insertion_ex_vat": "0.30",
+      "reserve_gbp": "0.59"
+    },
+    "review_note": "HOLD: public supplier wholesale, VAT, shipping, availability and actual sold demand unavailable without approved account access; £17.95 is a competitor asking price, not a verified winning selling price."
+  },
+  {
+    "sku": "NP_51823",
+    "title": "Gingerbread House Resin Christmas Incense Cone Burner",
+    "description": "Gingerbread house resin incense cone holder. Check supplier specifications and whether incense cones are included.",
+    "condition": "NEW",
+    "category_id": "",
+    "price_gbp": "10.95",
+    "approved_for_unpublished_offer": false,
+    "commercial_review": {
+      "verified": false,
+      "checked_on": "2026-11-07",
+      "stock": 0,
+      "supplier_url": "https://www.somethingdifferentwholesale.co.uk/Assets/Downloads/NP_51823-ProductTechnicalFile.pdf",
+      "demand_url": "https://www.ebay.co.uk/itm/176697807294",
+      "delivery_terms": "Pending supplier confirmation. Do not promise dispatch.",
+      "wholesale_inc_vat": "0.00",
+      "delivery_inc_vat": "0.00",
+      "supplier_payment_fee": "0.00",
+      "ebay_percent": "12.25",
+      "fee_vat_percent": "20",
+      "per_order_ex_vat": "0.40",
+      "insertion_ex_vat": "0.30",
+      "reserve_gbp": "0.59"
+    },
+    "review_note": "HOLD: public supplier wholesale, VAT, shipping and stock not confirmed; competitor asks £10.95, leaving uncertain margin."
+  }
+]
