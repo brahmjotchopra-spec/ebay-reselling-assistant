@@ -1,0 +1,57 @@
+name: eBay UK drafts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/ebay-drafts.yml
+      - ebay_bot.py
+      - ebay_client.py
+  workflow_dispatch:
+    inputs:
+      task:
+        description: Operation
+        type: choice
+        default: preview
+        options: [preview, credentials, create-unpublished]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ebay-uk-draft-writer
+  cancel-in-progress: false
+
+jobs:
+  drafts:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run offline safety tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Preview private manifest
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'preview'
+        env:
+          EBAY_LISTINGS_JSON: ${{ secrets.EBAY_LISTINGS_JSON }}
+        run: python3 ebay_bot.py
+      - name: Check seller credential presence and read access
+        if: github.event_name == 'push' || inputs.task == 'credentials'
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+        run: python3 ebay_bot.py --check-credentials
+      - name: Create approved unpublished offers
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'create-unpublished'
+        env:
+          EBAY_LISTINGS_JSON: ${{ secrets.EBAY_LISTINGS_JSON }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+        run: python3 ebay_bot.py --create-unpublished
