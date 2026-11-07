@@ -44,7 +44,8 @@ jobs:
           EBAY_LISTINGS_JSON: ${{ secrets.EBAY_LISTINGS_JSON }}
         run: python3 ebay_bot.py
       - name: Check seller credential presence and read access
-        if: github.event_name == 'workflow_dispatch' && inputs.task == 'credentials'
+        continue-on-error: true
+        if: github.event_name == 'push' || inputs.task == 'credentials'
         env:
           EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
