@@ -16,7 +16,7 @@ on:
         description: Operation
         type: choice
         default: preview
-        options: [preview, credentials, create-unpublished]
+        options: [preview, credentials, stage-unpublished, create-unpublished]
 
 permissions:
   contents: read
@@ -40,7 +40,7 @@ jobs:
         if: github.event_name == 'push'
         run: python3 ebay_bot.py
       - name: Create one non-live eBay offer
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'stage-unpublished'
         env:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
         run: python3 stage_unpublished.py
