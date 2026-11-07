@@ -19,7 +19,7 @@ on:
         description: Operation
         type: choice
         default: preview
-        options: [preview, credentials, stage-unpublished, create-unpublished]
+        options: [preview, credentials, stage-unpublished, setup-policy, attach-policies, create-unpublished]
 
 permissions:
   contents: read
@@ -48,13 +48,13 @@ jobs:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
         run: python3 stage_unpublished.py
       - name: Create free tracked-postage business policy (without publishing)
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'setup-policy'
         continue-on-error: true
         env:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
         run: python3 create_free_postage_policy.py
       - name: Attach business policies to non-live zero-stock offer
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'attach-policies'
         continue-on-error: true
         env:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
