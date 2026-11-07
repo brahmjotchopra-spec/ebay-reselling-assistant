@@ -39,7 +39,7 @@ def probe():
             elif name.endswith("_policies"):
                 for key in ("fulfillmentPolicies","paymentPolicies","returnPolicies"):
                     if key in data:
-                        print("  policies:",[{"name":x.get("name"),"policyId":x.get(key[:-3]+"Id")} for x in data[key]])
+                        print("  policies:",[{"name":x.get("name"),"policyId":x.get({"fulfillmentPolicies":"fulfillmentPolicyId","paymentPolicies":"paymentPolicyId","returnPolicies":"returnPolicyId"}[key])} for x in data[key]])
                 if not any(key in data for key in ("fulfillmentPolicies","paymentPolicies","returnPolicies")):
                     print("  response keys:",list(data))
             elif name=="selling_programs":
