@@ -8,6 +8,7 @@ on:
       - ebay_bot.py
       - ebay_client.py
       - listings.json
+      - stage_unpublished.py
       - 'tests/**'
   workflow_dispatch:
     inputs:
@@ -38,6 +39,11 @@ jobs:
       - name: Inspect staged candidate holds
         if: github.event_name == 'push'
         run: python3 ebay_bot.py
+      - name: Create one non-live eBay offer
+        if: github.event_name == 'push'
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+        run: python3 stage_unpublished.py
       - name: Preview private manifest
         if: github.event_name == 'workflow_dispatch' && inputs.task == 'preview'
         env:
