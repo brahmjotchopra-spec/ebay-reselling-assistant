@@ -7,6 +7,8 @@ on:
       - .github/workflows/ebay-drafts.yml
       - ebay_bot.py
       - ebay_client.py
+      - listings.json
+      - 'tests/**'
   workflow_dispatch:
     inputs:
       task:
@@ -33,13 +35,16 @@ jobs:
           persist-credentials: false
       - name: Run offline safety tests
         run: python3 -m unittest discover -s tests -v
+      - name: Inspect staged candidate holds
+        if: github.event_name == 'push'
+        run: python3 ebay_bot.py
       - name: Preview private manifest
         if: github.event_name == 'workflow_dispatch' && inputs.task == 'preview'
         env:
           EBAY_LISTINGS_JSON: ${{ secrets.EBAY_LISTINGS_JSON }}
         run: python3 ebay_bot.py
       - name: Check seller credential presence and read access
-        if: github.event_name == 'push' || inputs.task == 'credentials'
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'credentials'
         env:
           EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
