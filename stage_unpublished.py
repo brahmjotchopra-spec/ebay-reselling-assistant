@@ -20,7 +20,11 @@ def run():
     if not row.get("title") or not row.get("description"):
         raise DraftError("Product details missing.")
     api = Inventory(get_token())
+    print("STEP: verify read permission", flush=True)
     api.check_access()
+    print("STEP: inspect existing inventory item", flush=True)
+    existing = api.item(STAGE_SKU)
+    print("STEP: inspect existing offers", flush=True)
     offers = api.offers(STAGE_SKU)
     if offers:
         if len(offers) != 1 or offers[0].get("status") != "UNPUBLISHED":
@@ -28,7 +32,6 @@ def run():
         print("Existing NON-LIVE eBay offer found for SKU " + STAGE_SKU)
         print("Offer ID:", offers[0].get("offerId", "not returned"))
         return
-    existing = api.item(STAGE_SKU)
     inventory = {
         "product": {"title": row["title"], "description": row["description"]},
         "condition": "NEW",
@@ -41,6 +44,7 @@ def run():
             raise DraftError("Conflicting existing inventory item, no changes made.")
         print("Reusing existing stock-zero inventory item.")
     else:
+        print("STEP: create stock-zero inventory item", flush=True)
         api.create_item(STAGE_SKU, inventory)
         print("Created NON-LIVE inventory item with zero available stock.")
     offer = {
@@ -52,7 +56,9 @@ def run():
         "listingDescription": row["description"],
         "pricingSummary": {"price": {"value": row["price_gbp"], "currency": "GBP"}},
     }
+    print("STEP: create unpublished offer", flush=True)
     offer_id = api.create_offer(offer)
+    print("STEP: verify unpublished offer", flush=True)
     check = api.offer(offer_id)
     if check.get("status") != "UNPUBLISHED" or check.get("listing"):
         raise DraftError("Unexpected offer state; investigate before proceeding.")
