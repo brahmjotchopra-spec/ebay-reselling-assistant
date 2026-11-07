@@ -9,6 +9,7 @@ on:
       - ebay_client.py
       - listings.json
       - stage_unpublished.py
+      - seller_readiness.py
       - 'tests/**'
   workflow_dispatch:
     inputs:
@@ -44,6 +45,12 @@ jobs:
         env:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
         run: python3 stage_unpublished.py
+      - name: Audit seller policies and inventory location (read-only)
+        if: github.event_name == 'push'
+        continue-on-error: true
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+        run: python3 seller_readiness.py
       - name: Preview private manifest
         if: github.event_name == 'workflow_dispatch' && inputs.task == 'preview'
         env:
