@@ -40,6 +40,21 @@ def probe():
                 for key in ("fulfillmentPolicies","paymentPolicies","returnPolicies"):
                     if key in data:
                         print("  policies:",[{"name":x.get("name"),"policyId":x.get({"fulfillmentPolicies":"fulfillmentPolicyId","paymentPolicies":"paymentPolicyId","returnPolicies":"returnPolicyId"}[key])} for x in data[key]])
+                if name=="fulfillment_policies":
+                    for p in data.get("fulfillmentPolicies",[]):
+                        summary={"handling":p.get("handlingTime"),"options":[]}
+                        for opt in p.get("shippingOptions",[]):
+                            summary["options"].append({
+                                "type":opt.get("optionType"),
+                                "handling":opt.get("handlingTime"),
+                                "services":[{"code":v.get("shippingServiceCode"),"free":v.get("freeShipping"),
+                                    "charge":v.get("shippingCost",{}).get("value")} for v in opt.get("shippingServices",[])]
+                            })
+                        print("  fulfillment_summary:",summary)
+                if name=="return_policies":
+                    for p in data.get("returnPolicies",[]):
+                        print("  return_summary:",{"accepted":p.get("returnsAccepted"),"period":p.get("returnPeriod"),
+                            "shipping_cost_payer":p.get("returnShippingCostPayer")})
                 if not any(key in data for key in ("fulfillmentPolicies","paymentPolicies","returnPolicies")):
                     print("  response keys:",list(data))
             elif name=="selling_programs":
