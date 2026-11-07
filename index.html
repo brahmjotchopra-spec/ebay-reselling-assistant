@@ -19,28 +19,28 @@
 <body>
 <main>
   <h1>eBay Reselling Assistant — Privacy Policy</h1>
-  <p class="muted">Last updated: 29 October 2026</p>
+  <p class="muted">Updated 7 November 2026</p>
 
   <h2>About the application</h2>
-  <p>eBay Reselling Assistant is a personal-use application under development, intended to help its operator prepare and manage listings in their own eBay seller account. This page explains the intended use of account information and the current development status.</p>
+  <p>The repository owner uses this application to prepare draft listings in their own eBay seller account.</p>
 
   <h2>Information the application may access</h2>
-  <p>With the account holder's authorisation, the application is intended to request eBay permissions to manage inventory and offers, and to access selling-account settings and business policies. These may involve listing details, stock information, prices and other information needed to prepare listings. eBay authorisation uses OAuth; the application does not need the user's eBay password.</p>
+  <p>The operator authorises the eBay Inventory API through OAuth. The tool reads inventory and offer records and can create an inventory item and an unpublished offer from an approved product file.</p>
 
   <h2>How information is used</h2>
-  <p>Authorised eBay information is intended to be used only to prepare, review, create, update and manage listings at the account holder's direction, and to operate related seller settings. The application is not intended to sell personal information or use seller account information for advertising.</p>
+  <p>The application uses seller information to check access, match existing inventory, prepare approved drafts and verify that an offer is still unpublished.</p>
 
   <h2>Storage, security and third parties</h2>
-  <p>The application is still being developed. Its production data storage, access controls, retention periods and any service providers have not yet been finalised. Those arrangements must be documented here before the application processes or stores live seller account data. This public page is hosted through GitHub Pages; GitHub's own privacy practices apply to visits to the website.</p>
+  <p>Product files and CSV exports are kept by the operator. When the operator runs the GitHub workflow, GitHub holds the configured credentials and private product file as Actions secrets and passes them to the runner. The program sends seller credentials only to eBay. Public workflow logs report credential presence, counts and outcomes. eBay retains inventory and offer records in the seller account. GitHub Pages hosts this public page.</p>
 
   <h2>Choices and deletion</h2>
-  <p>Account holders can withdraw the application's eBay access through the relevant eBay account permissions. A private process for requesting access to or deletion of any data retained by the completed application must be provided and documented before live use.</p>
+  <p>The operator can revoke the grant in their eBay account, remove Actions secrets and workflow logs in GitHub, and delete local product files and exports. Each provider manages retention of records held in its own service.</p>
 
   <h2>Changes to this policy</h2>
   <p>This policy may be updated when development progresses and before any changes in how the application handles account information. The date at the top will be updated when the policy changes.</p>
 
   <h2>Contact</h2>
-  <p>For general questions about the project, visit the <a href="https://github.com/brahmjotchopra-spec/ebay-reselling-assistant/issues">project's GitHub issues page</a>. GitHub issues are public: do not post your password, access tokens or personal information there. A private privacy-support contact channel must be provided before the application begins processing live user data.</p>
+  <p>For general questions about the code, visit the <a href="https://github.com/brahmjotchopra-spec/ebay-reselling-assistant/issues">project's public issues page</a>. The repository owner administers the only seller account served by the application. Account access and deletion requests can be handled privately through the operator's authenticated eBay or GitHub support channel.</p>
 </main>
 </body>
 </html>
