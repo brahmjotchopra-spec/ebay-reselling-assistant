@@ -22,7 +22,7 @@ def photo_reachable():
             request=Request(NEW_URL,method="GET",headers={"User-Agent":"Mozilla/5.0"})
             with urlopen(request,timeout=12) as response:
                 head=response.read(3)
-                if response.status==200 and response.headers.get("Content-Type","").startswith("image/") and head==b"\\xff\\xd8\\xff":
+                if response.status==200 and response.headers.get("Content-Type","").startswith("image/") and head==bytes.fromhex("ffd8ff"):
                     return True
         except (URLError,HTTPError,OSError):
             pass
