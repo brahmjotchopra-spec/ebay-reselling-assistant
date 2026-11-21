@@ -2,7 +2,7 @@
 import urllib.request, urllib.error, urllib.parse, json, sys
 from ebay_client import get_token
 BASE="https://api.ebay.com/commerce/taxonomy/v1"
-terms=["open jump rings silver 6mm","self adhesive furniture protector pads","mini grip seal jewellery bags","kraft gift tags with string"]
+terms=["32 in 1 precision screwdriver set electronics repair tool kit"]
 def get(path,token):
     req=urllib.request.Request(BASE+path,headers={"Authorization":"Bearer "+token,"Accept":"application/json"})
     try:
