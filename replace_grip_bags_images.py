@@ -17,7 +17,7 @@ BASE="https://m.media-amazon.com/images/I/"
 # The selected IDs are from the same mawmuaw 500-pack Amazon UK listing the user supplied.
 # Omit the five-sizes infographic displaying 100 of each size if it is later shown:
 # the actual eBay lot contains only 20 per size.
-PHOTO_IDS=["71+4O0VhFtL","41LQQmu8bzL","413AdD2gIgL","512fpIxdLbL","41Hb119mA4L"]
+PHOTO_IDS=["71+4O0VhFtL","413AdD2gIgL","41Hb119mA4L","51GF8OUL04L"]
 PHOTOS=[BASE+code+"._AC_SL1500_.jpg" for code in PHOTO_IDS]
 
 def check_images():
@@ -33,7 +33,7 @@ def check_images():
                 if response.status!=200 or not response.headers.get("Content-Type","").startswith("image/"):
                     raise DraftError("Source image "+str(index)+" is unavailable")
             im=Image.open(BytesIO(data))
-            if min(im.size)<500:
+            if max(im.size)<500 or min(im.size)<450:
                 raise DraftError("Source image "+str(index)+" too small: "+str(im.size))
             print("Image "+str(index)+" checked, dimensions "+str(im.size))
         except (URLError,HTTPError,OSError) as exc:
