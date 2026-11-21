@@ -76,5 +76,49 @@
       "reserve_gbp": "0.59"
     },
     "review_note": "HOLD: public supplier wholesale, VAT, shipping and stock not confirmed; competitor asks £10.95, leaving uncertain margin."
+  },
+  {
+    "sku": "AMZ-RINGS-25MM-50",
+    "title": "50 x 25mm Silver Stainless Steel Split Key Rings Craft Keyring Hoops",
+    "description": "Pack of 50 round 25mm split key rings for keychains, key storage and craft projects. Silver stainless steel. Pack will be counted and checked before sale. No accessories or chains included.",
+    "condition": "NEW",
+    "category_id": "150055",
+    "price_gbp": "5.79",
+    "aspects": {
+      "Type": [
+        "Split Ring"
+      ],
+      "Colour": [
+        "Silver"
+      ],
+      "Material": [
+        "Stainless Steel"
+      ],
+      "Size": [
+        "25mm"
+      ]
+    },
+    "image_urls": [],
+    "approved_for_unpublished_offer": false,
+    "commercial_review": {
+      "verified": false,
+      "checked_on": "2026-11-21",
+      "stock": 0,
+      "supplier_url": "https://www.amazon.co.uk/s?k=TAICHEUT+600+Pack+Small+Keyring+Hoops+25mm",
+      "demand_url": "https://www.ebay.co.uk/itm/357138417365",
+      "delivery_terms": "Amazon checkout and Locker availability NOT verified. Do not publish until bulk pack received, 50 rings physically counted and packed, measured and postage tested. Seller to photograph own items. Amazon price £11.35 for 600 is indicative; search URL rather than verified product ASIN.",
+      "wholesale_inc_vat": "0.95",
+      "delivery_inc_vat": "0.00",
+      "supplier_payment_fee": "0.00",
+      "outbound_postage_inc_vat": "1.90",
+      "packaging_inc_vat": "0.10",
+      "amazon_locker_verified": false,
+      "ebay_percent": "13.25",
+      "fee_vat_percent": "20",
+      "per_order_ex_vat": "0.30",
+      "insertion_ex_vat": "0.30",
+      "reserve_gbp": "0.20"
+    },
+    "review_note": "PRELIMINARY ONLY: £11.35 / 600 * 50 rounds to £0.95; £5.79 is a competitor asking price with 3 recorded cumulative sales, not 30-day sold-through. Model 101-250g Royal Mail 2nd Class Large Letter £1.90, but unweighed. Fees conservatively include category + regulatory operating fees, VAT, per-order & 30p insertion per sale. Predicted margin near £1 only if delivery free, package falls into weight band, and no returns. Locker checkout, item/brand, stock and source ASIN unconfirmed. Zero stock; nonlive staging only."
   }
 ]

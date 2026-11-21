@@ -1,0 +1,31 @@
+name: Stage Amazon Keyrings - NONLIVE
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage_amazon_candidate.py'
+      - 'listings.json'
+      - '.github/workflows/stage-amazon-candidate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run safety tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Stage only zero-stock unpublished keyrings
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+        run: python3 stage_amazon_candidate.py
