@@ -25,7 +25,8 @@ def main():
         })
         try:
             with urlopen(req,timeout=25) as resp:
-                body=json.loads(resp.read())
+                raw=resp.read()
+                body=json.loads(raw) if raw.strip() else {}
         except HTTPError as exc:
             try:
                 errors=json.loads(exc.read()).get("errors",[])
