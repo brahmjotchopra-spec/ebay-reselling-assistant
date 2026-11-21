@@ -24,8 +24,8 @@ def verify_image_url(url):
         try:
             req=Request(url,method="GET",headers={"User-Agent":"Mozilla/5.0"})
             with urlopen(req,timeout=20) as r:
-                if r.status==200 and r.read(3)==bytes.fromhex("ffd8ff") and
-                   "image/jpeg" in r.headers.get("Content-Type",""):
+                if (r.status==200 and r.read(3)==bytes.fromhex("ffd8ff") and
+                    "image/jpeg" in r.headers.get("Content-Type","")):
                     return
         except (HTTPError,URLError,OSError):
             pass
