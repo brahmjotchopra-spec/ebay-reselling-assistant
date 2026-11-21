@@ -20,7 +20,7 @@ PRICE="4.99"
 ORIGINAL="https://raw.githubusercontent.com/brahmjotchopra-spec/ebay-reselling-assistant/main/assets/bulk-grip-seal-bags.jpg"
 AMAZON="https://m.media-amazon.com/images/I/"
 IDS=["71+4O0VhFtL","413AdD2gIgL","41Hb119mA4L","51GF8OUL04L"]
-MEDIA_URL="https://api.ebay.com/commerce/media/v1_beta/image/create_image_from_file"
+MEDIA_URL="https://apim.ebay.com/commerce/media/v1_beta/image/create_image_from_file"
 
 def safe_error(exc):
     try:
