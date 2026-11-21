@@ -78,6 +78,9 @@ def main():
     if product.get("mpn") not in (None, "", "Does not apply"):
         raise DraftError("Existing manufacturer MPN differs; refusing modification")
     aspects["MPN"] = ["Does not apply"]
+    if aspects.get("Colour") not in (None, [], [""], ["White"]):
+        raise DraftError("Existing Colour differs from staged white mesh filters")
+    aspects["Colour"] = ["White"]
     product["aspects"] = aspects
     product["brand"] = "Unbranded"
     product["mpn"] = "Does not apply"
@@ -95,7 +98,8 @@ def main():
     if (saved_prod.get("brand") != "Unbranded" or
         saved_prod.get("mpn") != "Does not apply" or
         (saved_prod.get("aspects") or {}).get("Brand") != ["Unbranded"] or
-        (saved_prod.get("aspects") or {}).get("MPN") != ["Does not apply"]):
+        (saved_prod.get("aspects") or {}).get("MPN") != ["Does not apply"] or
+        (saved_prod.get("aspects") or {}).get("Colour") != ["White"]):
         raise DraftError("Required brand metadata did not save")
     if ((saved_prod.get("imageUrls") != photos) or
         (saved.get("availability") or {}).get("shipToLocationAvailability", {}).get("quantity") != REQUIRED_QTY):
