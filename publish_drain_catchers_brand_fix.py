@@ -71,8 +71,16 @@ def main():
     # eBay's Product.brand field is distinct from product.aspects.Brand.
     # Preserve both and let the marketplace validate its values.
     aspects["Brand"] = ["Unbranded"]
+    # Generic product has no manufacturer part number; the recognised UK
+    # unavailable identifier text is preferable to inventing an MPN.
+    if aspects.get("MPN") not in (None, [], [""], ["Does not apply"]):
+        raise DraftError("A different MPN needs verification")
+    if product.get("mpn") not in (None, "", "Does not apply"):
+        raise DraftError("Existing manufacturer MPN differs; refusing modification")
+    aspects["MPN"] = ["Does not apply"]
     product["aspects"] = aspects
     product["brand"] = "Unbranded"
+    product["mpn"] = "Does not apply"
     payload = {
         "product": product,
         "condition": "NEW",
@@ -85,12 +93,14 @@ def main():
     saved = api.item(SKU)
     saved_prod = saved.get("product") or {}
     if (saved_prod.get("brand") != "Unbranded" or
-        (saved_prod.get("aspects") or {}).get("Brand") != ["Unbranded"]):
+        saved_prod.get("mpn") != "Does not apply" or
+        (saved_prod.get("aspects") or {}).get("Brand") != ["Unbranded"] or
+        (saved_prod.get("aspects") or {}).get("MPN") != ["Does not apply"]):
         raise DraftError("Required brand metadata did not save")
     if ((saved_prod.get("imageUrls") != photos) or
         (saved.get("availability") or {}).get("shipToLocationAvailability", {}).get("quantity") != REQUIRED_QTY):
         raise DraftError("Images or quantity changed unexpectedly")
-    print("BRAND FIXED IN PRODUCT AND ASPECTS", flush=True)
+    print("BRAND AND UNAVAILABLE MPN SET IN PRODUCT AND ASPECTS", flush=True)
 
     # Capture eBay's specific validation message without exposing credentials.
     request = Request(
