@@ -1,0 +1,27 @@
+name: Stage one 32-in-1 precision screwdriver set (nonlive)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage_precision_screwdriver32.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Create or verify zero-stock unpublished 32-in-1 screwdriver offer
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 stage_precision_screwdriver32.py
