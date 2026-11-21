@@ -55,6 +55,9 @@ The checked-in `listings.json` is empty. Save the real array under `private/`, o
       "wholesale_inc_vat": "0.00",
       "delivery_inc_vat": "0.00",
       "supplier_payment_fee": "0.00",
+      "outbound_postage_inc_vat": "1.55",
+      "packaging_inc_vat": "0.10",
+      "amazon_locker_verified": false,
       "ebay_percent": "9.85",
       "fee_vat_percent": "20",
       "per_order_ex_vat": "0.40",
@@ -65,7 +68,7 @@ The checked-in `listings.json` is empty. Save the real array under `private/`, o
 ]
 ```
 
-Record the verified unit cost, delivery charge and evidence for that seller, SKU and delivery area. Use the current London date (`YYYY-MM-DD`). `ebay_percent` includes the final-value and regulatory fees. The calculation deducts supplier costs, eBay fees including VAT, and the stated reserve from the selling price. It requires at least £3.50 per unit and checks that one fulfilment for every eligible SKU fits together within £50. It never commits that money. Review delivery exclusions and seller policies separately before any later decision to publish.
+Record the verified unit cost, delivery charge and evidence for that seller, SKU and delivery area. Before approval, confirm Amazon Locker eligibility at checkout and include the outgoing UK postage and packaging for every sale. Candidate listings remain held until all review checks pass. Use the current London date (`YYYY-MM-DD`). `ebay_percent` includes the final-value and regulatory fees. The calculation deducts supplier costs, eBay fees including VAT, and the stated reserve from the selling price. It requires at least £0.50 per unit and checks that one fulfilment for every eligible SKU fits together within £50. It never commits that money. Review delivery exclusions and seller policies separately before any later decision to publish.
 
 ## GitHub Actions
 

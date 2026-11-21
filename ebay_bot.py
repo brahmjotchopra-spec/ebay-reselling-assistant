@@ -17,7 +17,7 @@ from ebay_client import ACCESS_KEY, REFRESH_KEYS, DraftError, Inventory, get_tok
 
 PENNY = Decimal("0.01")
 BUDGET = Decimal("50.00")
-FLOOR = Decimal("3.50")
+FLOOR = Decimal("0.50")
 SKU_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,43}")
 PRICE_PATTERN = re.compile(r"[0-9]{1,6}(?:\.[0-9]{1,2})?")
 
@@ -40,14 +40,15 @@ def link(value):
 
 
 def unit_margin(price, review):
-    costs = [amount(review.get(k), k) for k in ("wholesale_inc_vat", "delivery_inc_vat",
-             "supplier_payment_fee", "reserve_gbp", "insertion_ex_vat", "per_order_ex_vat")]
-    wholesale, delivery, payment, reserve, insertion, order = costs
+    costs = [amount(review.get(k), k) for k in ("wholesale_inc_vat", "delivery_inc_vat", "supplier_payment_fee",
+             "outbound_postage_inc_vat", "packaging_inc_vat", "reserve_gbp",
+             "insertion_ex_vat", "per_order_ex_vat")]
+    wholesale, delivery, payment, postage, packaging, reserve, insertion, order = costs
     rate = amount(review.get("ebay_percent"), "ebay_percent")
     vat = amount(review.get("fee_vat_percent"), "fee_vat_percent")
     if wholesale <= 0 or rate <= 0 or rate > 100 or vat > 100:
         raise DraftError("Invalid wholesale price or fee rate.")
-    landed = wholesale + delivery + payment
+    landed = wholesale + delivery + payment + postage + packaging
     fees = money((price * rate / 100 + order + insertion) * (1 + vat / 100))
     return landed, fees, money(price - landed - fees - reserve)
 
@@ -63,6 +64,11 @@ def review_item(row, today):
     stock = review.get("stock")
     if type(stock) is not int or stock < 1:
         return "no confirmed stock"
+    if review.get("amazon_locker_verified") is not True:
+        return "Amazon Locker checkout eligibility unverified"
+    for key in ("outbound_postage_inc_vat", "packaging_inc_vat"):
+        if not isinstance(review.get(key), str) or not PRICE_PATTERN.fullmatch(review[key]):
+            return "outbound postage or packaging unverified"
     if not (link(review.get("supplier_url")) and link(review.get("demand_url"))
             and isinstance(review.get("delivery_terms"), str) and review["delivery_terms"].strip()):
         return "supplier, delivery or demand evidence missing"
@@ -71,7 +77,7 @@ def review_item(row, today):
     if landed > BUDGET:
         return "one unit exceeds the £50 budget"
     if margin < FLOOR:
-        return "unit margin below £3.50"
+        return "unit margin below £0.50"
     return None
 
 

@@ -23,6 +23,8 @@ def approved():
             "description": "Sample description", "commercial_review": {
                 "verified": True, "checked_on": DATE, "stock": 1, "wholesale_inc_vat": "4.79",
                 "delivery_inc_vat": "0", "supplier_payment_fee": "0.41", "reserve_gbp": "0.58",
+                "outbound_postage_inc_vat": "1.55", "packaging_inc_vat": "0.10",
+                "amazon_locker_verified": True,
                 "insertion_ex_vat": "0.30", "per_order_ex_vat": "0.40", "ebay_percent": "9.85",
                 "fee_vat_percent": "20", "supplier_url": "https://example.com/supplier",
                 "delivery_terms": "UK mainland", "demand_url": "https://example.com/comparable"}}
@@ -32,15 +34,16 @@ class ReviewTests(unittest.TestCase):
     def test_margin_and_cutoff(self):
         row = approved()
         self.assertEqual(bot.unit_margin(Decimal("11.49"), row["commercial_review"]),
-                         (Decimal("5.20"), Decimal("2.20"), Decimal("3.51")))
-        row["commercial_review"]["reserve_gbp"] = "0.59"
+                         (Decimal("6.85"), Decimal("2.20"), Decimal("1.86")))
+        row["commercial_review"]["reserve_gbp"] = "1.94"
         self.assertEqual(bot.prepare([row], DATE), ([row], []))
-        row["commercial_review"]["reserve_gbp"] = "0.60"
+        row["commercial_review"]["reserve_gbp"] = "1.95"
         self.assertFalse(bot.prepare([row], DATE)[0])
 
     def test_approval_is_boolean_and_stock_must_be_current(self):
         for changes in [{"verified": False}, {"stock": 0}, {"checked_on": "2026-11-06"},
-                        {"delivery_terms": ""}]:
+                        {"delivery_terms": ""}, {"amazon_locker_verified": False},
+                        {"outbound_postage_inc_vat": ""}]:
             row = approved()
             row["commercial_review"].update(changes)
             self.assertFalse(bot.prepare([row], DATE)[0])
