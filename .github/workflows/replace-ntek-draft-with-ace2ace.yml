@@ -1,0 +1,33 @@
+name: Replace unpublished NTEK draft with ACE2ACE White Roller
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'replace_ntek_draft_with_ace2ace_white.py'
+      - 'assets/ace2ace_white_roller_studio.jpg'
+      - '.github/workflows/replace-ntek-draft-with-ace2ace.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  revise-unpublished-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check approved original illustration
+        run: |
+          test -s assets/ace2ace_white_roller_studio.jpg
+          file assets/ace2ace_white_roller_studio.jpg
+      - name: Update existing eBay zero-stock offer and read back details
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 replace_ntek_draft_with_ace2ace_white.py
