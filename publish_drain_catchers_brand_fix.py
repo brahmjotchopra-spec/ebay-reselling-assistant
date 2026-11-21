@@ -81,6 +81,12 @@ def main():
     if aspects.get("Colour") not in (None, [], [""], ["White"]):
         raise DraftError("Existing Colour differs from staged white mesh filters")
     aspects["Colour"] = ["White"]
+    if aspects.get("Material") not in (None, [], [""], ["Plastic"]):
+        raise DraftError("Existing Material needs verification")
+    aspects["Material"] = ["Plastic"]
+    if aspects.get("Shape") not in (None, [], [""], ["Square"]):
+        raise DraftError("Existing Shape needs verification")
+    aspects["Shape"] = ["Square"]
     product["aspects"] = aspects
     product["brand"] = "Unbranded"
     product["mpn"] = "Does not apply"
@@ -99,7 +105,9 @@ def main():
         saved_prod.get("mpn") != "Does not apply" or
         (saved_prod.get("aspects") or {}).get("Brand") != ["Unbranded"] or
         (saved_prod.get("aspects") or {}).get("MPN") != ["Does not apply"] or
-        (saved_prod.get("aspects") or {}).get("Colour") != ["White"]):
+        (saved_prod.get("aspects") or {}).get("Colour") != ["White"] or
+        (saved_prod.get("aspects") or {}).get("Material") != ["Plastic"] or
+        (saved_prod.get("aspects") or {}).get("Shape") != ["Square"]):
         raise DraftError("Required brand metadata did not save")
     if ((saved_prod.get("imageUrls") != photos) or
         (saved.get("availability") or {}).get("shipToLocationAvailability", {}).get("quantity") != REQUIRED_QTY):
