@@ -9,11 +9,20 @@
     "gross_spread_before_costs_gbp": "4.72",
     "amazon_lookup": "https://www.amazon.co.uk/dp/B07Y228Q4C",
     "reference": "https://pricespy.co.uk/product.php?p=16227877",
-    "status": "RESEARCH_ONLY",
+    "status": "HOLD_MARGIN_AND_STOCK",
     "owned_stock": 0,
     "locker_checkout_verified": false,
     "demand_verified": false,
-    "notes": "Liquid shipping restrictions/costs and current price need checking. Different observed dates."
+    "notes": "Liquid shipping restrictions/costs and current price need checking. Different observed dates.",
+    "margin_estimate_gbp": "-3.07",
+    "supplier_price_status": "indicative_not_current_verified",
+    "postage_gbp": "4.40",
+    "packaging_gbp": "0.25",
+    "fee_gbp": "2.53",
+    "listing_allowance_gbp": "0.36",
+    "risk_reserve_gbp": "0.25",
+    "check_note": "At the previously noted Amazon £10.49 and eBay £15.21, projected net is -£3.07 after business fees and a small parcel. A cheaper Amazon offer may refer to a different bottle/size; exact 200ml variant needs checkout. No stock held, no eBay sold-through verified.",
+    "review_date": "2026-11-21"
   },
   {
     "sku": "RESEARCH-MQUPIN-TB013",
@@ -25,11 +34,20 @@
     "gross_spread_before_costs_gbp": "7.47",
     "amazon_lookup": "https://www.amazon.co.uk/s?k=MQUPIN+TB-013",
     "reference": "https://bigshopper.co.uk/product/coffee-mug-warmer-electric-smart-beverage-warmer-cup-with-touch-tech-led-backlit-display-for-home-office-mug-milk-2-temperature-settings-1099380067.htm",
-    "status": "RESEARCH_ONLY",
+    "status": "HOLD_MARGIN_AND_STOCK",
     "owned_stock": 0,
     "locker_checkout_verified": false,
     "demand_verified": false,
-    "notes": "Mains/USB details, product safety/UK plug and parcel postage need verification."
+    "notes": "Mains/USB details, product safety/UK plug and parcel postage need verification.",
+    "margin_estimate_gbp": "-1.87",
+    "supplier_price_status": "third_party_comparison_not_checkout",
+    "postage_gbp": "4.40",
+    "packaging_gbp": "0.25",
+    "fee_gbp": "4.08",
+    "listing_allowance_gbp": "0.36",
+    "risk_reserve_gbp": "0.25",
+    "check_note": "£16.99 is a third-party comparison quote for model TB-013, not current confirmed Amazon checkout; eBay asking price £24.46. Estimated negative margin, electrical specifications and product safety need proof; no stock held or verified Locker acceptance.",
+    "review_date": "2026-11-21"
   },
   {
     "sku": "RESEARCH-CRAFTS4ALL-12",
@@ -41,10 +59,19 @@
     "gross_spread_before_costs_gbp": "4.10",
     "amazon_lookup": "https://www.amazon.co.uk/s?k=Crafts+4+All+Paint+Brushes+12+Set",
     "reference": "https://uk.findthedeal.org/large-oil-paint-brushes/",
-    "status": "RESEARCH_ONLY",
+    "status": "HOLD_MARGIN_AND_STOCK",
     "owned_stock": 0,
     "locker_checkout_verified": false,
     "demand_verified": false,
-    "notes": "Check current competition which includes cheaper sellers; no proven margin after postage."
+    "notes": "Check current competition which includes cheaper sellers; no proven margin after postage.",
+    "margin_estimate_gbp": "-0.43",
+    "supplier_price_status": "third_party_comparison_not_checkout",
+    "postage_gbp": "1.55",
+    "packaging_gbp": "0.15",
+    "fee_gbp": "2.22",
+    "listing_allowance_gbp": "0.36",
+    "risk_reserve_gbp": "0.25",
+    "check_note": "£6.85 is earlier comparison price not current Amazon checkout. A comparable eBay offering is £4.85 plus £0.91 postage. £1.55 large-letter cost only if packaged item fits thickness/size; otherwise worse. No stock held, not verified to sell.",
+    "review_date": "2026-11-21"
   }
 ]
