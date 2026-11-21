@@ -6,13 +6,34 @@ isolated product image is used as the basis of the listing photos. This process
 never buys supplier stock or changes any unrelated live listing. It refuses to
 create a second offer if the existing exact-SKU offer is missing or changed.
 """
-import sys, time
+import sys, time, json
 from io import BytesIO
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 from ebay_client import Inventory, DraftError, get_token
+
+# Log only eBay API validation error messages (never auth headers/token values).
+def ebay_write(api, method, path, payload=None):
+    body=json.dumps(payload).encode() if payload is not None else None
+    req=Request("https://api.ebay.com/sell/inventory/v1"+path, data=body,
+                method=method, headers=api.headers)
+    try:
+        with urlopen(req,timeout=25) as resp:
+            data=resp.read()
+        return json.loads(data) if data else {}
+    except HTTPError as exc:
+        try:
+            content=json.loads(exc.read())
+            for err in content.get("errors",[])[:4]:
+                print("EBAY FIELD ERROR",method,path,"HTTP",exc.code,
+                      "CODE",err.get("errorId"),"MESSAGE",err.get("message"),
+                      "PARAMETERS",err.get("parameters"),flush=True)
+        except (ValueError,KeyError,TypeError):
+            print("EBAY API HTTP ERROR",method,path,exc.code,flush=True)
+        raise DraftError("eBay declined "+method+" "+path) from None
+
 
 SKU="DRAFT-AMZ-PRECISION-SCREW32-1"
 CATEGORY="42255"
@@ -161,7 +182,8 @@ def prepare():
             "Colour":["Grey","Black"]
         }
     })
-    api.create_item(SKU,{
+    print("STEP: update screwdriver inventory and image gallery",flush=True)
+    ebay_write(api,"PUT","/inventory_item/"+SKU,{
         "product":product,"condition":"NEW",
         "availability":{"shipToLocationAvailability":{"quantity":1}}
     })
@@ -177,12 +199,14 @@ def prepare():
         "pricingSummary":{"price":{"value":PRICE,"currency":"GBP"}},
         "listingPolicies":policies,"merchantLocationKey":location
     }
-    api._request("PUT","/offer/"+offers[0]["offerId"],update)
+    print("STEP: update unpublished screwdriver offer",flush=True)
+    ebay_write(api,"PUT","/offer/"+offers[0]["offerId"],update)
     checked=api.offer(offers[0]["offerId"])
     if checked.get("status")!="UNPUBLISHED" or checked.get("availableQuantity")!=1:
         raise DraftError("Prepublication offer verification failed")
     print("PREPUBLICATION READY: exactly one unit, seller-owned, GBP 7.49, two images",flush=True)
-    published=api._request("POST","/offer/"+offers[0]["offerId"]+"/publish")
+    print("STEP: publish exact existing screwdriver offer",flush=True)
+    published=ebay_write(api,"POST","/offer/"+offers[0]["offerId"]+"/publish")
     listing_id=str(published.get("listingId") or "")
     if not listing_id:
         raise DraftError("Publish response has no listingId; inspect live state before retry")
