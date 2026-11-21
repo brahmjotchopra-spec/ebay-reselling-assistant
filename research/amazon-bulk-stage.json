@@ -1,0 +1,122 @@
+[
+  {
+    "sku": "BULK-JUMP-6MM-100",
+    "supplier_qty": 1000,
+    "lot_qty": 100,
+    "initial_price": "6.99",
+    "price_gbp": "3.99",
+    "category_id": "150055",
+    "title": "100 x 6mm Silver Tone Stainless Steel Open Jump Rings Jewellery Making",
+    "description": "Pack of 100 silver-tone stainless steel open jump rings, nominal outer diameter 6mm. Suitable for jewellery making, necklaces, bracelets and craft repairs. This lot consists of 100 loose jump rings only. Exact dimensions and material will be verified against stock before the listing goes live. No tools or other jewellery parts included.",
+    "aspects": {
+      "Type": [
+        "Open Jump Ring"
+      ],
+      "Colour": [
+        "Silver"
+      ],
+      "Size": [
+        "6 mm"
+      ],
+      "Material": [
+        "Stainless Steel"
+      ]
+    },
+    "supplier_url": "https://www.amazon.co.uk/s?k=PandaHall+1000Pcs+Stainless+Steel+Open+Jump+Rings+6mm",
+    "ebay_comparable_url": "https://www.ebay.co.uk/shop/silver-jump-ring?_nkw=silver+jump+ring",
+    "stock": 0,
+    "amazon_locker_verified": false,
+    "checked_on": "2026-11-21",
+    "postage_assumption": "0.91",
+    "fee_assumption": "0.99",
+    "listing_allowance": "0.36",
+    "packaging": "0.12",
+    "refund_reserve": "0.20",
+    "estimated_profit": "0.71",
+    "contingency": "Assumes 100 rings fit within a UK 2nd Class standard letter; if large letter the margin may fall below £0.50.",
+    "condition": "NEW",
+    "approved_for_unpublished_offer": false,
+    "image_urls": []
+  },
+  {
+    "sku": "BULK-GRIP-MIX-100",
+    "supplier_qty": 500,
+    "lot_qty": 100,
+    "initial_price": "4.99",
+    "price_gbp": "4.99",
+    "category_id": "86174",
+    "title": "100 Clear Small Resealable Grip Seal Bags Assorted Sizes Jewellery Craft Storage",
+    "description": "Assorted pack of 100 clear plastic resealable grip-seal mini storage bags for jewellery, beads, coins, craft pieces and small parts. Sourced from a bulk mixed-size set. Exact size assortment and quantities will be counted and described before sale. No contents included.",
+    "aspects": {
+      "Type": [
+        "Reclosable Bags"
+      ],
+      "Colour": [
+        "Clear"
+      ],
+      "Material": [
+        "Plastic"
+      ],
+      "Features": [
+        "Resealable"
+      ]
+    },
+    "supplier_url": "https://www.amazon.co.uk/dp/B0GSQLZH9R",
+    "ebay_comparable_url": "https://www.ebay.co.uk/itm/293614700678",
+    "stock": 0,
+    "amazon_locker_verified": false,
+    "checked_on": "2026-11-21",
+    "postage_assumption": "1.55",
+    "fee_assumption": "1.13",
+    "listing_allowance": "0.36",
+    "packaging": "0.12",
+    "refund_reserve": "0.20",
+    "estimated_profit": "0.63",
+    "contingency": "Margin depends on envelope size/weight and buyer willingness to pay for the mixed-size bundle; competing single-size packs are cheaper.",
+    "condition": "NEW",
+    "approved_for_unpublished_offer": false,
+    "image_urls": []
+  },
+  {
+    "sku": "BULK-TAGS-MIX-50",
+    "supplier_qty": 300,
+    "lot_qty": 50,
+    "initial_price": "8.59",
+    "price_gbp": "5.49",
+    "category_id": "184488",
+    "title": "50 Mixed Brown White Black Round Kraft Gift Tags 6cm with Jute String",
+    "description": "Lot of 50 round 6cm kraft paper gift tags in mixed brown, white and black colours, suitable for gifts, crafts, wedding favours and shop labels. Includes a proportionate amount of the bulk set's natural jute string. Exact colour quantities and string length will be confirmed after counting before publication. Blank tags supplied; no printed text.",
+    "aspects": {
+      "Type": [
+        "Gift Tag"
+      ],
+      "Shape": [
+        "Round"
+      ],
+      "Colour": [
+        "Multicoloured"
+      ],
+      "Material": [
+        "Paper"
+      ],
+      "Size": [
+        "6 cm"
+      ]
+    },
+    "supplier_url": "https://www.amazon.co.uk/dp/B095MSG3ZC",
+    "ebay_comparable_url": "https://www.ebay.co.uk/itm/323435516175",
+    "stock": 0,
+    "amazon_locker_verified": false,
+    "checked_on": "2026-11-21",
+    "postage_assumption": "1.55",
+    "fee_assumption": "0.93",
+    "listing_allowance": "0.36",
+    "packaging": "0.12",
+    "refund_reserve": "0.20",
+    "estimated_profit": "0.90",
+    "contingency": "A 50-tag bundle is not an exact competitor match. Need verify all 3 colour quantities and amount of twine after receipt.",
+    "condition": "NEW",
+    "approved_for_unpublished_offer": false,
+    "image_urls": []
+  }
+]
