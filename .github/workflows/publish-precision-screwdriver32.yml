@@ -1,0 +1,38 @@
+name: Publish owned 32-in-1 precision screwdriver kit on eBay UK
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'publish_precision_screwdriver32.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install Pillow
+        run: python3 -m pip install Pillow --quiet
+      - name: Prepare supplied-item gallery artwork and public image files
+        run: python3 publish_precision_screwdriver32.py --render-only
+      - name: Commit gallery JPEGs to this repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/precision-screwdriver32-main.jpg assets/precision-screwdriver32-size.jpg
+          if ! git diff --staged --quiet; then
+            git commit -m "Add precision screwdriver product listing gallery"
+            git push origin HEAD:main
+          fi
+      - name: Publish one confirmed-stock kit and verify public listing
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 publish_precision_screwdriver32.py --publish
