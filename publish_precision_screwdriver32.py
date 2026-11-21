@@ -179,7 +179,7 @@ def prepare():
             "Type":["Precision Screwdriver Set"],
             "Number of Pieces":["32"],
             "Features":["Magnetic","Interchangeable Bits"],
-            "Colour":["Grey","Black"]
+            "Colour":["Grey"]
         }
     })
     print("STEP: update screwdriver inventory and image gallery",flush=True)
