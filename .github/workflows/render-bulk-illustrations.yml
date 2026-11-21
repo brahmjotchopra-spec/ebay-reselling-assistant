@@ -1,0 +1,31 @@
+name: Prepare original craft-item listing images
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'render_bulk_illustrations.py'
+      - '.github/workflows/render-bulk-illustrations.yml'
+permissions:
+  contents: write
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install Pillow
+        run: python3 -m pip install Pillow --quiet
+      - name: Render neutral illustrative product images
+        run: python3 render_bulk_illustrations.py
+      - name: Publish images on GitHub so eBay can retrieve them
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/bulk-6mm-jump-rings.jpg assets/bulk-grip-seal-bags.jpg assets/bulk-round-kraft-tags.jpg
+          if ! git diff --staged --quiet; then
+            git commit -m "Add original resale listing product illustrations"
+            git push origin HEAD:main
+          fi
