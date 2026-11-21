@@ -1,0 +1,57 @@
+name: Replace live microfibre listing with four new photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'replace_microfibre_images.py'
+      - '.github/workflows/replace-microfibre-images.yml'
+      - 'assets/new-microfibre-photos.zip.b64'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Decode and verify four original newly generated microfibre JPEGs
+        run: |
+          python3 - <<'PY'
+          import base64,io,zipfile
+          from pathlib import Path
+          root=Path("assets")
+          raw=base64.b64decode((root/"new-microfibre-photos.zip.b64").read_text().strip())
+          expected={"microfibre_main_new_ebay.jpg",
+                    "microfibre_details_new_ebay.jpg",
+                    "microfibre_cleaning_new_ebay.jpg",
+                    "microfibre_glass_new_ebay.jpg"}
+          with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+              if set(archive.namelist()) != expected:
+                  raise ValueError("Unexpected set of photos in approved image ZIP")
+              for name in sorted(expected):
+                  image=archive.read(name)
+                  if not image.startswith(bytes.fromhex("ffd8ff")) or len(image)<10000:
+                      raise ValueError("Invalid image bytes for "+name)
+                  (root/name).write_bytes(image)
+                  print("Prepared",name,len(image),"bytes")
+          PY
+      - name: Commit four new images to the image hosting repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/microfibre_main_new_ebay.jpg assets/microfibre_details_new_ebay.jpg assets/microfibre_cleaning_new_ebay.jpg assets/microfibre_glass_new_ebay.jpg
+          if ! git diff --staged --quiet; then
+            git commit -m "Add four user-approved photo-realistic microfibre product visuals"
+            git push origin HEAD:main
+          fi
+      - name: Update existing live eBay listing photos and verify price and stock
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 replace_microfibre_images.py
