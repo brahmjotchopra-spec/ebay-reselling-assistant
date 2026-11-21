@@ -106,7 +106,7 @@
       "stock": 0,
       "supplier_url": "https://www.amazon.co.uk/s?k=TAICHEUT+600+Pack+Small+Keyring+Hoops+25mm",
       "demand_url": "https://www.ebay.co.uk/itm/357138417365",
-      "delivery_terms": "Amazon checkout and Locker availability NOT verified. Do not publish until bulk pack received, 50 rings physically counted and packed, measured and postage tested. Seller to photograph own items. Amazon price £11.35 for 600 is indicative; search URL rather than verified product ASIN.",
+      "delivery_terms": "Amazon product-page screenshot from 21 Nov 2026 shows £11.35 total for the 600-pack (£0.02 per ring), 'FREE pickup Tomorrow, 22 November' to Amazon Locker aldgate, Hanworth TW13 6QA, Prime, and In stock. Final Amazon checkout and its total have NOT been inspected, so amazon_locker_verified remains false. Do not publish before stock is received and measured; dispatch and item photos still unverified.",
       "wholesale_inc_vat": "0.95",
       "delivery_inc_vat": "0.00",
       "supplier_payment_fee": "0.00",
@@ -119,6 +119,6 @@
       "insertion_ex_vat": "0.30",
       "reserve_gbp": "0.20"
     },
-    "review_note": "PRELIMINARY ONLY: £11.35 / 600 * 50 rounds to £0.95; £5.79 is a competitor asking price with 3 recorded cumulative sales, not 30-day sold-through. Model 101-250g Royal Mail 2nd Class Large Letter £1.90, but unweighed. Fees conservatively include category + regulatory operating fees, VAT, per-order & 30p insertion per sale. Predicted margin near £1 only if delivery free, package falls into weight band, and no returns. Locker checkout, item/brand, stock and source ASIN unconfirmed. Zero stock; nonlive staging only."
+    "review_note": "21 Nov 2026: User screenshot confirms the displayed Amazon product-page offer (£11.35, in stock, free Locker pickup at aldgate Hanworth TW13 6QA on 22 Nov). It is not evidence of a completed order or checkout, and no units are possessed. Per 50 rings bulk cost £0.9458 rounded £0.95. £5.79 eBay proposed price yields approximately £1 net only using provisional Royal Mail 2nd Class large-letter 101-250g £1.90, packaging £0.10 and assumed business fees; packed weight, exact product details/material, comparable recent demand and business seller costs must be confirmed. Hold zero stock, keep nonlive."
   }
 ]
