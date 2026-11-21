@@ -79,8 +79,8 @@
   },
   {
     "sku": "AMZ-RINGS-25MM-50",
-    "title": "50 x 25mm Silver Stainless Steel Split Key Rings Craft Keyring Hoops",
-    "description": "Pack of 50 round 25mm split key rings for keychains, key storage and craft projects. Silver stainless steel. Pack will be counted and checked before sale. No accessories or chains included.",
+    "title": "50 x 25mm Silver Split Key Rings Metal Keyring Hoops Keychain Craft Rings",
+    "description": "Pack of 50 silver-coloured metal split key rings, approximately 25mm in diameter. Suitable for keyrings, keychain making, jewellery findings and craft projects. You receive 50 round split rings only. Keys, tags, and other accessories are not included. New and unused. Actual stock will be checked, counted and packed before it is offered for sale.",
     "condition": "NEW",
     "category_id": "150055",
     "price_gbp": "5.79",
@@ -92,10 +92,13 @@
         "Silver"
       ],
       "Material": [
-        "Stainless Steel"
+        "Metal"
       ],
       "Size": [
-        "25mm"
+        "25 mm"
+      ],
+      "Brand": [
+        "Unbranded"
       ]
     },
     "image_urls": [],
@@ -119,6 +122,6 @@
       "insertion_ex_vat": "0.30",
       "reserve_gbp": "0.20"
     },
-    "review_note": "21 Nov 2026: User screenshot confirms the displayed Amazon product-page offer (£11.35, in stock, free Locker pickup at aldgate Hanworth TW13 6QA on 22 Nov). It is not evidence of a completed order or checkout, and no units are possessed. Per 50 rings bulk cost £0.9458 rounded £0.95. £5.79 eBay proposed price yields approximately £1 net only using provisional Royal Mail 2nd Class large-letter 101-250g £1.90, packaging £0.10 and assumed business fees; packed weight, exact product details/material, comparable recent demand and business seller costs must be confirmed. Hold zero stock, keep nonlive."
+    "review_note": "21 Nov 2026: User screenshot confirms the displayed Amazon product-page offer (£11.35, in stock, free Locker pickup at aldgate Hanworth TW13 6QA on 22 Nov). It is not evidence of a completed order or checkout, and no units are possessed. Per 50 rings bulk cost £0.9458 rounded £0.95. £5.79 eBay proposed price yields approximately £1 net only using provisional Royal Mail 2nd Class large-letter 101-250g £1.90, packaging £0.10 and assumed business fees; packed weight, exact product details/material, comparable recent demand and business seller costs must be confirmed. Hold zero stock, keep nonlive. 21 Nov: GitHub Action prepared the title/description/item specifics and verified eBay offer remains UNPUBLISHED, stock 0. Real photos still outstanding."
   }
 ]
