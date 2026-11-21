@@ -42,7 +42,7 @@ def cloths():
             for t in range(25):
                 tx=x+12+t*7
                 d.line((tx,y+21,tx+2,y+43),fill=tuple(max(50,v-12) for v in fill),width=1)
-    im.save(OUT/"household-microfibre-20.jpg",quality=91,optimize=True)
+    im.convert("RGB").save(OUT/"household-microfibre-20.jpg",quality=91,optimize=True)
     print("IMAGE household-microfibre-20.jpg", (OUT/"household-microfibre-20.jpg").stat().st_size,flush=True)
 
 def liners():
@@ -65,7 +65,7 @@ def liners():
     d.rounded_rectangle((385,330,855,555),radius=20,fill=(207,169,118),outline=(135,103,70),width=4)
     for y in range(352,551,27):
         d.line((407,y,833,y),fill=(227,195,153),width=3)
-    im.save(OUT/"household-air-fryer-liners-100.jpg",quality=91,optimize=True)
+    im.convert("RGB").save(OUT/"household-air-fryer-liners-100.jpg",quality=91,optimize=True)
     print("IMAGE household-air-fryer-liners-100.jpg", (OUT/"household-air-fryer-liners-100.jpg").stat().st_size,flush=True)
 
 def drains():
@@ -82,7 +82,7 @@ def drains():
             d.line((x+25+k,y+25,x+25+k,y+284),fill=(183,193,196),width=1)
         for k in range(0,260,14):
             d.line((x+25,y+25+k,x+356,y+25+k),fill=(183,193,196),width=1)
-    im.save(OUT/"household-drain-hair-catchers-100.jpg",quality=91,optimize=True)
+    im.convert("RGB").save(OUT/"household-drain-hair-catchers-100.jpg",quality=91,optimize=True)
     print("IMAGE household-drain-hair-catchers-100.jpg", (OUT/"household-drain-hair-catchers-100.jpg").stat().st_size,flush=True)
 
 if __name__=="__main__":
