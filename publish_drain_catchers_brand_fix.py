@@ -6,6 +6,8 @@ Idempotent; only operates on this exact SKU and category.
 """
 import json
 import sys
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 from ebay_client import Inventory, DraftError, get_token, ApiError
 
 SKU = "DRAFT-HOME-DRAINCATCH100"
@@ -15,7 +17,8 @@ EXPECTED_TITLE_START = "100 Disposable Shower Drain Hair Catcher"
 REQUIRED_QTY = 1
 
 def main():
-    api = Inventory(get_token())
+    token = get_token()
+    api = Inventory(token)
     api.check_access()
     offers = api.offers(SKU)
     if len(offers) != 1:
@@ -59,35 +62,61 @@ def main():
         raise DraftError("Seller dispatch location is missing")
 
     aspects = dict(product.get("aspects") or {})
-    brand = aspects.get("Brand")
-    if brand is None or brand == [] or brand == [""]:
-        # Generic no-brand mesh stickers; don't invent a manufacturer's name.
-        aspects["Brand"] = ["Unbranded"]
-        product["aspects"] = aspects
-        payload = {
-            "product": product,
-            "condition": "NEW",
-            "availability": item["availability"],
-        }
-        for key in ("conditionDescription", "packageWeightAndSize"):
-            if key in item: payload[key] = item[key]
-        api.create_item(SKU, payload)
-        saved = api.item(SKU)
-        if ((saved.get("product") or {}).get("aspects") or {}).get("Brand") != ["Unbranded"]:
-            raise DraftError("Brand attribute did not save")
-        if ((saved.get("product") or {}).get("imageUrls") != photos or
-            (saved.get("availability") or {}).get("shipToLocationAvailability", {}).get("quantity") != REQUIRED_QTY):
-            raise DraftError("Images or quantity changed unexpectedly")
-        print("MISSING BRAND FIXED: Unbranded (generic product)", flush=True)
-    else:
-        print("Existing brand already present; not overwriting", flush=True)
+    current_aspect = aspects.get("Brand")
+    current_brand = product.get("brand")
+    if current_aspect not in (None, [], [""], ["Unbranded"]):
+        raise DraftError("Existing non-generic Brand requires exact product verification")
+    if current_brand not in (None, "", "Unbranded"):
+        raise DraftError("Existing product brand differs from staged generic item")
+    # eBay's Product.brand field is distinct from product.aspects.Brand.
+    # Preserve both and let the marketplace validate its values.
+    aspects["Brand"] = ["Unbranded"]
+    product["aspects"] = aspects
+    product["brand"] = "Unbranded"
+    payload = {
+        "product": product,
+        "condition": "NEW",
+        "availability": item["availability"],
+    }
+    for key in ("conditionDescription", "packageWeightAndSize"):
+        if key in item:
+            payload[key] = item[key]
+    api.create_item(SKU, payload)
+    saved = api.item(SKU)
+    saved_prod = saved.get("product") or {}
+    if (saved_prod.get("brand") != "Unbranded" or
+        (saved_prod.get("aspects") or {}).get("Brand") != ["Unbranded"]):
+        raise DraftError("Required brand metadata did not save")
+    if ((saved_prod.get("imageUrls") != photos) or
+        (saved.get("availability") or {}).get("shipToLocationAvailability", {}).get("quantity") != REQUIRED_QTY):
+        raise DraftError("Images or quantity changed unexpectedly")
+    print("BRAND FIXED IN PRODUCT AND ASPECTS", flush=True)
 
+    # Capture eBay's specific validation message without exposing credentials.
+    request = Request(
+        "https://api.ebay.com/sell/inventory/v1/offer/" + offer["offerId"] + "/publish",
+        data=None, method="POST",
+        headers={"Authorization": "Bearer " + token,
+                 "Content-Type": "application/json",
+                 "Content-Language": "en-GB",
+                 "Accept": "application/json"}
+    )
     try:
-        result = api._request("POST", "/offer/" + offer["offerId"] + "/publish")
-    except ApiError as exc:
-        print("EBAY REJECTED PUBLICATION HTTP", exc.status,
-              "ERROR IDS", ",".join(map(str, sorted(exc.ids))), flush=True)
+        with urlopen(request, timeout=25) as response:
+            result = json.loads(response.read())
+    except HTTPError as exc:
+        try:
+            data = json.loads(exc.read())
+            details = [{"id": e.get("errorId"),
+                        "message": e.get("message"),
+                        "longMessage": e.get("longMessage"),
+                        "parameters": e.get("parameters")} for e in data.get("errors", [])]
+        except (ValueError, KeyError, TypeError):
+            details = []
+        print("PUBLISH REJECTED HTTP", exc.code, "DETAILS", json.dumps(details, ensure_ascii=False)[:3500], flush=True)
         return
+    except URLError:
+        raise DraftError("Could not reach eBay; check offer state before retry")
     listing_id = result.get("listingId")
     if not listing_id:
         raise DraftError("Publish response has no listingId; reconcile before retry")
