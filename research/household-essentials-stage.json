@@ -1,0 +1,102 @@
+[
+  {
+    "sku": "HOME-MICROFIBRE20",
+    "lot_qty": 20,
+    "supplier_qty": 20,
+    "supplier_url": "https://www.amazon.co.uk/s?k=20+Piece+Microfiber+Cleaning+Cloth+Set+lint+free",
+    "supplier_price_reference": "3.19",
+    "price_gbp": "8.99",
+    "category_id": "29509",
+    "title": "20 Pack Microfibre Cleaning Cloths Reusable Kitchen Bathroom Car Lint Free",
+    "description": "Pack of 20 microfibre cleaning cloths suitable for general home, kitchen, bathroom and vehicle cleaning. Washable and reusable. Cloth sizes, colours, materials and packed weight must be checked against the actual stock before this offer is published. You will receive cleaning cloths only; no cleaning products or accessories.",
+    "aspects": {
+      "Type": [
+        "Cleaning Cloth"
+      ],
+      "Material": [
+        "Microfibre"
+      ],
+      "Number in Pack": [
+        "20"
+      ]
+    },
+    "condition": "NEW",
+    "stock": 0,
+    "price_status": "unverified provisional",
+    "postage_verified": false,
+    "stock_owned_confirmed": false,
+    "image_urls": [],
+    "supplier_exact_match_verified": false,
+    "demand_reference": "https://www.ebay.co.uk/itm/405263016235",
+    "demand_note": "Historical 20-cloth 30x30cm listing sold 492, not evidence this exact product is viable"
+  },
+  {
+    "sku": "HOME-AIRFRYER100",
+    "lot_qty": 100,
+    "supplier_qty": 200,
+    "supplier_url": "https://www.amazon.co.uk/dp/B0CYSWLCP2",
+    "supplier_price_reference": null,
+    "price_gbp": "6.99",
+    "category_id": "25846",
+    "title": "100 Air Fryer Disposable Paper Liners 7.9in 20cm Square Brown Non Stick",
+    "description": "A pack of 100 disposable unbleached brown bowl-style parchment paper air fryer liners, nominal inner base 7.9 inches (approximately 20cm). Intended for suitable air fryers and baking equipment. Never place an empty paper liner inside an air fryer during preheating: it can contact the heating element. Always weigh the liner down with sufficient food. No air fryer or food included. Verify physical dimensions, food-contact packaging and compliance before publication.",
+    "aspects": {
+      "Type": [
+        "Air Fryer Paper Liner"
+      ],
+      "Material": [
+        "Paper"
+      ],
+      "Colour": [
+        "Brown"
+      ],
+      "Number in Pack": [
+        "100"
+      ]
+    },
+    "condition": "NEW",
+    "stock": 0,
+    "price_status": "unverified provisional",
+    "postage_verified": false,
+    "stock_owned_confirmed": false,
+    "image_urls": [],
+    "supplier_exact_match_verified": false,
+    "demand_reference": "https://www.ebay.co.uk/itm/134141778362",
+    "demand_note": "Other sellers have recorded sales on different 100 packs; not matched for exact size"
+  },
+  {
+    "sku": "HOME-DRAINCATCH100",
+    "lot_qty": 100,
+    "supplier_qty": 100,
+    "supplier_url": "https://www.amazon.co.uk/s?k=100+Pcs+Disposable+Shower+Drain+Hair+Catcher+10x10cm+Mesh+Stickers",
+    "supplier_price_reference": "4.99",
+    "price_gbp": "7.99",
+    "category_id": "260554",
+    "title": "100 Disposable Shower Drain Hair Catcher Mesh Stickers 10x10cm Filters",
+    "description": "Pack of 100 disposable 10 x 10cm adhesive mesh hair catchers designed to cover suitable flat shower or bath drains and help catch loose hair. Clean and dry the surrounding drain area before application; the shape and compatibility depend on your drain. This is for disposable mesh stickers only. Exact adhesive strength and water resistance require verification against stock before sale.",
+    "aspects": {
+      "Type": [
+        "Drain Strainer"
+      ],
+      "Features": [
+        "Disposable",
+        "Adhesive"
+      ],
+      "Number in Pack": [
+        "100"
+      ],
+      "Size": [
+        "10 x 10 cm"
+      ]
+    },
+    "condition": "NEW",
+    "stock": 0,
+    "price_status": "unverified provisional",
+    "postage_verified": false,
+    "stock_owned_confirmed": false,
+    "image_urls": [],
+    "supplier_exact_match_verified": false,
+    "demand_reference": "https://www.ebay.co.uk/itm/127864287217",
+    "demand_note": "100-pack other-seller option around £5.05; £7.99 draft is uncompetitive and should not be published without new evidence"
+  }
+]
