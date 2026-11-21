@@ -1,0 +1,27 @@
+name: Stage rubber pet hair broom (nonlive)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage_rubber_pet_hair_broom.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Create or verify one zero-stock unpublished broom offer
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 stage_rubber_pet_hair_broom.py
