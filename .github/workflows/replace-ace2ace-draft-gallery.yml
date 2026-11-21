@@ -1,0 +1,49 @@
+name: Replace ACE2ACE draft with four seller-provided photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'replace_ace2ace_draft_gallery.py'
+      - 'assets/ace2ace_gallery_product.jpg'
+      - 'assets/ace2ace_gallery_in_use.jpg'
+      - 'assets/ace2ace_gallery_cleaning.jpg'
+      - 'assets/ace2ace_gallery_surfaces.jpg'
+      - '.github/workflows/replace-ace2ace-draft-gallery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  update-ace2ace-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Verify four seller-provided original product-gallery crops
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          expected={
+            "ace2ace_gallery_product.jpg":"d884280bcc208189acb23e6ef0a66f4850998d0e59090205969026f2a6b14dad",
+            "ace2ace_gallery_in_use.jpg":"25ff83721672be92e6d11e41de052710a13dd155900f4463d200316c901c629b",
+            "ace2ace_gallery_cleaning.jpg":"3c08b8e0ed5632648068640417245c9727f6ca06af91bb0c5d53539940056012",
+            "ace2ace_gallery_surfaces.jpg":"774045d0e531c21f803824e4c369d6311d653ac6fb45d0dcf0ab8a0dd0248fd6",
+          }
+          for name,digest in expected.items():
+              data=Path("assets",name).read_bytes()
+              if len(data)<40000 or data[:3]!=bytes.fromhex("ffd8ff") or hashlib.sha256(data).hexdigest()!=digest:
+                  raise SystemExit("Invalid or unapproved photo: "+name)
+              print("APPROVED IMAGE",name,len(data),flush=True)
+          PY
+      - name: Update existing unpublished ACE2ACE draft and verify all four photos
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 replace_ace2ace_draft_gallery.py
