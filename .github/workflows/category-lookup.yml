@@ -21,4 +21,4 @@ jobs:
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
           EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
-        run: python3 research/category_lookup.py
+        run: PYTHONPATH=. python3 research/category_lookup.py
