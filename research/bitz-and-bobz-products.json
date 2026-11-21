@@ -1,0 +1,39 @@
+[
+  {
+    "competitor_sku": "bitz_andbobz-397852193648",
+    "title": "50 self-adhesive black cable clips",
+    "competitor_price_gbp": "6.34",
+    "amazon_alternative_50_gbp": "5.98",
+    "amazon_alternative_70_gbp": "4.99",
+    "demand": "not_verified",
+    "exact_match": false,
+    "amazon_locker_verified": false,
+    "stock_owned": 0,
+    "status": "HOLD_COSTS_AND_DEMAND",
+    "why": "Retail Amazon purchase alone nearly matches competitor price, insufficient net margin after postage."
+  },
+  {
+    "competitor_sku": "bitz_andbobz-397781694119",
+    "title": "25mm furniture castors with brakes",
+    "competitor_price_gbp": "14.53",
+    "amazon_alternative_gbp": "8.58",
+    "exact_match": false,
+    "amazon_locker_verified": false,
+    "stock_owned": 0,
+    "demand": "not_verified",
+    "status": "RESEARCH_ONLY",
+    "why": "Shipping likely parcel, need exact product match and margins."
+  },
+  {
+    "competitor_sku": "bitz_andbobz-397866300886",
+    "title": "650 piece black nylon washer assortment",
+    "competitor_price_gbp": "8.94",
+    "amazon_alternative_small_packs_from_gbp": "5.19",
+    "exact_match": false,
+    "amazon_locker_verified": false,
+    "stock_owned": 0,
+    "demand": "not_verified",
+    "status": "RESEARCH_ONLY",
+    "why": "Cannot compare 650 assorted washers to a 55/120 pack of a specific size."
+  }
+]
