@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-22",
+  "source_policy": "Amazon UK only; user picks up at Locker and self-dispatches after ownership; never retailer-to-buyer dropship",
+  "publish_allowed": false,
+  "stock_confirmed": false,
+  "photo_rights_confirmed": false,
+  "locker_checkout_verified": false,
+  "shipping_weight_verified": false,
+  "price_and_margin_verified": false,
+  "status": "RESEARCH_ONLY_NOT_LISTING_READY",
+  "products": [
+    {
+      "sku": "AMZ-NEXT-MESH7",
+      "title": "7 Mini Mesh Zip Pouches Assorted Colours Travel Makeup Stationery Storage",
+      "description": "Seven small mesh pouches in assorted colours with zip closures, useful for organising cosmetics, stationery and travel accessories. Exact dimensions, colour assortment and packaging to be confirmed against the purchased set.",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GTZ81X5P",
+      "amazon_brand": "FTXRV",
+      "amazon_qty": 7,
+      "indicative_amazon_price_gbp": 6.59,
+      "ebay_comp_url": "https://www.ebay.co.uk/itm/407365746751",
+      "ebay_comp_gbp": 9.7,
+      "provisional_listing": "Pack of 3 at £7.99 (only after splitting and counting; one pouch left from one 7-pack)",
+      "note": "Projected sale depends on buyers preferring smaller pack over competitor 7-pack; price not validated",
+      "status": "HOLD_COMPARE_3_PACK_PRICES"
+    },
+    {
+      "sku": "AMZ-NEXT-BINDER100",
+      "title": "Mr. Pen 100 Small 19mm Coloured Foldback Binder Clips Paper Document Clamps",
+      "description": "One set of 100 Mr. Pen 19mm small coloured foldback binder clips for holding paper and organising documents. Confirm colours and exact packaging after receipt.",
+      "amazon_url": "https://www.amazon.co.uk/dp/B07Q7348V5",
+      "amazon_brand": "Mr. Pen",
+      "amazon_qty": 100,
+      "indicative_amazon_price_gbp": 5.85,
+      "ebay_comp_url": "https://www.ebay.co.uk/sch/i.html?_nkw=mr+pen+100+binder+clips+19mm",
+      "ebay_comp_gbp": null,
+      "provisional_listing": "100-piece pack at £11.99 only if an exact eBay sold comp supports it",
+      "note": "Potential £0.61 scenario margin at £11.99 assuming £2.70 postage, 14.7% variable fee, fixed £0.36, insertion £0.36, packaging £0.15, returns £0.20. No exact sold evidence.",
+      "status": "HOLD_DEMAND"
+    },
+    {
+      "sku": "AMZ-NEXT-FLORALNAIL20",
+      "title": "5 Mini Floral Double Sided Nail Files 180/240 Grit Emery Boards Manicure",
+      "description": "Five assorted floral-pattern mini double-sided nail files in 180/240 grit, for routine nail shaping. Confirm pack colours and grit labels against received Amazon stock.",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CJNJYQZG",
+      "amazon_brand": "VIKKI",
+      "amazon_qty": 20,
+      "indicative_amazon_price_gbp": 4.39,
+      "ebay_comp_url": "https://www.ebay.co.uk/itm/256248544645",
+      "ebay_comp_gbp": 5.99,
+      "provisional_listing": "Sell one lot of 5 at £4.49; 4 lots per Amazon 20-pack",
+      "note": "~£0.80 scenario margin ONLY if a flat 5-pack is within Royal Mail standard letter rate (£0.91), with fee and packing assumptions. Compare actual 5-pack sold prices.",
+      "status": "HOLD_POSTAGE_DEMAND"
+    },
+    {
+      "sku": "AMZ-NEXT-KEYSCREW2",
+      "title": "2 Mini 3 in 1 Glasses Screwdrivers Keyring Repair Tool Eyeglass Watch",
+      "description": "Two compact eyeglass screwdrivers on keychains for basic spectacle, jewellery and watch adjustments. Confirm included screwdriver tips and dimensions from stock.",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FQM6SVC5",
+      "amazon_brand": "unverified",
+      "amazon_qty": 2,
+      "indicative_amazon_price_gbp": null,
+      "ebay_comp_url": "https://www.ebay.co.uk/itm/407166711034",
+      "ebay_comp_gbp": 6.24,
+      "provisional_listing": "No price approved; similar two-piece eBay asks range £4.94–£6.24",
+      "note": "Amazon price and actual variant/brand unavailable; not currently proven viable",
+      "status": "HOLD_AMAZON_PRICE"
+    },
+    {
+      "sku": "AMZ-NEXT-HAIR24",
+      "title": "24 Large Black Metal Snap Hair Clips 2.16in Non Slip Hair Barrettes",
+      "description": "Pack of 24 large black metal snap hair clips approximately 2.16 inches long, for securing hair when styling. Confirm measurements, colour, materials and exact pack before selling.",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FG2VYTFH",
+      "amazon_brand": "aoukoslt",
+      "amazon_qty": 24,
+      "indicative_amazon_price_gbp": 5.88,
+      "ebay_comp_url": "https://www.ebay.co.uk/itm/326851455491",
+      "ebay_comp_gbp": 8.82,
+      "provisional_listing": "No price approved; related 24-piece Chinco clips sold for £8.82 but different brand and grip design",
+      "note": "Public Amazon page says currently unavailable for anonymous browser; competing brand not an exact match; likely poor economics",
+      "status": "REJECT_PENDING_ALTERNATIVE"
+    }
+  ]
+}
