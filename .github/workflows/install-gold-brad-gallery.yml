@@ -1,0 +1,60 @@
+name: Install verified gold brad gallery from image package
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/gold-brads-gallery.zip.b64'
+      - '.github/workflows/install-gold-brad-gallery.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: install-gold-brads
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Verify image signatures, dimension and archive contents
+        run: |
+          python3 -m pip install pillow --quiet
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64,zipfile,io
+          from PIL import Image
+          archive=base64.b64decode(Path("assets/gold-brads-gallery.zip.b64").read_text().strip(),validate=True)
+          names=[
+            "01-main-100-gold-brads.jpg",
+            "02-dimensions-8x16mm.jpg",
+            "03-detail-split-prongs.jpg",
+            "04-craft-use.jpg",
+            "05-original-reference-product.jpg",
+            "06-botanical-paper-in-use.jpg",
+          ]
+          target=Path("assets/gold-brads")
+          target.mkdir(parents=True,exist_ok=True)
+          with zipfile.ZipFile(io.BytesIO(archive)) as z:
+            if sorted(z.namelist())!=sorted(names):
+              raise ValueError("Unexpected photo count or filenames")
+            for name in names:
+              data=z.read(name)
+              if not (data.startswith(bytes.fromhex("ffd8ff")) and len(data)<5000000):
+                raise ValueError("Invalid JPEG "+name)
+              with Image.open(io.BytesIO(data)) as im:
+                im.verify()
+                if im.width<500 or im.height<500:
+                  raise ValueError("Gallery image too small: "+name)
+              (target/name).write_bytes(data)
+              print("INSTALL OK",name,len(data))
+          PY
+      - name: Commit the exact six images for eBay gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/gold-brads
+          if ! git diff --staged --quiet; then
+            git commit -m "Install six prepared gold brad listing photographs"
+            git push origin HEAD:main
+          fi
