@@ -1,0 +1,60 @@
+{
+  "campaign": "broad-catalogue-sprint-2026-11-22",
+  "created_on": "2026-11-22",
+  "target_marketplace": "EBAY_GB",
+  "actual_ebay_status": "NOT CREATED ON EBAY; OFFLINE CSV ONLY",
+  "api_blocker": "Existing GitHub EBAY_ACCESS_TOKEN returned HTTP 401, code 1001 on read-only eBay taxonomy API, 22 Nov 2026. No EBAY_CLIENT_ID / EBAY_CLIENT_SECRET / EBAY_REFRESH_TOKEN available in previous GitHub workflow; user needs renewed seller authorization.",
+  "publish_permitted": false,
+  "stock_confirmed": false,
+  "image_rights_confirmed": false,
+  "source_delivery_to_user_confirmed": false,
+  "profit_scenario_notes": "Indicative only. Assumes allocation £0.48 inbound shipping per two-pack, Royal Mail 2nd Class 101-250g Large Letter £1.90 (subject to physical measurements), packing £0.15, eBay fee ~14.7% of selling price + £0.36 incl VAT, reserve £0.20. Choice Wholesale standard shipping £3.99 ex VAT, £4.79 inc VAT; checkout prices/VAT and minimum order not verified. User cannot receive home deliveries; no alternate destination verified. Actual postage/fees must be validated before live.",
+  "csv_local_file": "ebay_draft_import_2026-11-22.csv",
+  "products": [
+    {
+      "sku": "DRAFT-CHW-JANRAX13-BLACK2",
+      "title": "2 x Janrax 13x5 Inch Clear Exam Pencil Case Black Zip Transparent PVC",
+      "price_gbp": "5.89",
+      "category_id": "122951",
+      "supplier_items": 2,
+      "supplier_advertised_total_gbp": "1.20",
+      "supplier_url": "https://www.choicewholesale.co.uk/products/janrax-13x5-black-zip-clear-exam-pencil-case-1",
+      "sold_comp_url": "https://www.ebay.co.uk/itm/234130046795",
+      "sold_comp_note": "Comparable 2x 13-inch clear exam cases £5.89; 286 sold (not necessarily black). Exact single Janrax black case 147 recorded sales https://www.ebay.co.uk/itm/232618127727",
+      "indicative_net_gbp": "0.73",
+      "description": "You receive TWO genuine Janrax 13x5 inch clear PVC exam pencil cases with black zip closures, suitable for school stationery storage. Approximately 33 x 13cm, 200 micron PVC. Empty cases only; pens and other accessories not included. Check exam rules before use.",
+      "brand": "Janrax",
+      "ean_single": "5055497067055"
+    },
+    {
+      "sku": "DRAFT-CHW-JANRAX13-GREEN2",
+      "title": "2 x Janrax 13x5 Inch Clear Exam Pencil Case Green Zip Transparent PVC",
+      "price_gbp": "5.89",
+      "category_id": "122951",
+      "supplier_items": 1,
+      "supplier_advertised_total_gbp": "1.10",
+      "supplier_url": "https://www.choicewholesale.co.uk/products/pack-of-2-janrax-13x5-green-zip-clear-exam-pencil-cases",
+      "sold_comp_url": "https://www.ebay.co.uk/itm/332534658871",
+      "sold_comp_note": "Janrax single green 13-inch case listed at £4.29 with 118 sold. Comparable 2-pack other-colour long cases £5.89 with 286 sold.",
+      "indicative_net_gbp": "0.83",
+      "description": "Two genuine Janrax large 13x5 inch clear PVC pencil cases with green zip closures. Transparent 200-micron material, suitable for exams and everyday stationery storage. Empty cases only. Check individual exam rules before use.",
+      "brand": "Janrax",
+      "ean_pack": "15055497067076"
+    },
+    {
+      "sku": "DRAFT-CHW-JANRAX8-BLUE2",
+      "title": "2 x Janrax 8x5 Inch Clear Exam Pencil Cases Blue Zip Transparent PVC",
+      "price_gbp": "5.49",
+      "category_id": "122951",
+      "supplier_items": 1,
+      "supplier_advertised_total_gbp": "0.90",
+      "supplier_url": "https://www.choicewholesale.co.uk/products/pack-of-2-janrax-8x5-blue-zip-clear-exam-pencil-cases",
+      "sold_comp_url": "https://www.ebay.co.uk/itm/334939453449",
+      "sold_comp_note": "Similar 8-inch single clear case listing £3.99 with 72 sold. Exact 2-pack sold demand NOT verified; a 2-pack 8x5 Janrax black advertised £5.99.",
+      "indicative_net_gbp": "0.69",
+      "description": "Pack of two Janrax 8x5 inch clear 200-micron PVC pencil cases with blue zips. For pens, pencils, erasers and school/exam storage. Empty cases only; school and exam rules vary.",
+      "brand": "Janrax",
+      "ean_pack": "15055497067014"
+    }
+  ]
+}
