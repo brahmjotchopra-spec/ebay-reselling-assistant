@@ -48,8 +48,8 @@
       "ebay_comp_url": "https://www.ebay.co.uk/itm/256248544645",
       "ebay_comp_gbp": 5.99,
       "provisional_listing": "Sell one lot of 5 at £4.49; 4 lots per Amazon 20-pack",
-      "note": "~£0.80 scenario margin ONLY if a flat 5-pack is within Royal Mail standard letter rate (£0.91), with fee and packing assumptions. Compare actual 5-pack sold prices.",
-      "status": "HOLD_POSTAGE_DEMAND"
+      "note": "User checked the exact Amazon product on 22 Nov 2026 and reported out of stock. Remove from sourcing shortlist; do not buy or publish. Earlier margin estimate is not actionable.",
+      "status": "OUT_OF_STOCK_USER_CONFIRMED_2026_11_22"
     },
     {
       "sku": "AMZ-NEXT-KEYSCREW2",
