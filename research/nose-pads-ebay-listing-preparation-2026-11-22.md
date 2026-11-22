@@ -1,3 +1,5 @@
+**STOCK VERIFICATION UPDATE (22 November 2026):** The previously sent Amazon ASIN B0F21N78KB is confirmed **CURRENTLY UNAVAILABLE** on Amazon UK's product page, and it is a different brand (CJMUQHEHH), not the LURVOUS candidate. Do not recommend, buy or publish based on that product. Another probe B086MSL75S (Disino 20 pairs) says it cannot dispatch to the selected delivery location, so this is also NOT a verified source. Product search cards and third-party price aggregators are not sufficient proof of stock. Seller draft remains blocked; require live Amazon UK add-to-basket/checkout and eligible Locker at user's chosen location before treating any substitute as viable. No order or eBay publication.
+
 # eBay listing preparation — 10 pairs self-adhesive silicone glasses nose pads
 Prepared 22 November 2026. NOT an eBay live listing and NOT an eBay Seller Hub draft.
 
