@@ -62,3 +62,13 @@ jobs:
             git push origin HEAD:main
           fi
           echo "Uploaded images are hosted; eBay staging workflow will attach them with zero buyer-visible inventory."
+      - name: Attach hosted gallery to existing zero-stock eBay offer
+        if: ${{ hashFiles('assets/cable-straps-photos.zip') != '' }}
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: |
+          sleep 12
+          python3 stage_amazon_basics_cable_straps.py
