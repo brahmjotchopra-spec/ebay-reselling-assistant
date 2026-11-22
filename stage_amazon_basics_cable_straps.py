@@ -115,6 +115,12 @@ def main():
             "availability":{"shipToLocationAvailability":{"quantity":0}}
         })
         print("ITEM STORED GALLERY COUNT",len(imgs),flush=True)
+        if imgs:
+            stored=api.item(SKU)
+            got=(stored.get("product") or {}).get("imageUrls") or []
+            if got!=imgs:
+                raise DraftError("eBay inventory readback did not match the six-photo gallery")
+            print("VERIFIED EBAY INVENTORY GALLERY",len(got),"IMAGES IN CORRECT ORDER",flush=True)
     if not existing:
         offer_id=api.create_offer({
             "sku":SKU,"marketplaceId":"EBAY_GB","format":"FIXED_PRICE",
@@ -132,7 +138,7 @@ def main():
     print("QTY 0 / NO LIVE LISTING / NO PAYMENT / NO SPEND",flush=True)
     if not imgs:
         print("PHOTO BLOCKER: user image JPG files have not been hosted in assets/cable-straps/",flush=True)
-    print("PUBLICATION BLOCKERS: physical inventory, source price/Locker, delivery dimensions, fees and image gallery",flush=True)
+    print("PUBLICATION BLOCKERS: physical inventory, source price/Locker, delivery dimensions and fees"+("" if imgs else ", image gallery"),flush=True)
 
 if __name__=="__main__":
     try:main()
