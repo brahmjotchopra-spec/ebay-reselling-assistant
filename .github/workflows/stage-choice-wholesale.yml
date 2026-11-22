@@ -1,31 +1,11 @@
-name: Stage Choice Wholesale researched offers (non-live)
+name: Legacy Choice Wholesale staging (disabled for Amazon-only sourcing)
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'stage_choice_wholesale.py'
-      - 'research/choice-wholesale-listing-batch-2026-11-22.json'
-      - '.github/workflows/stage-choice-wholesale.yml'
   workflow_dispatch:
 permissions:
   contents: read
-concurrency:
-  group: ebay-uk-choice-wholesale-unpublished
-  cancel-in-progress: false
 jobs:
-  stage:
+  disabled:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - name: Run safety tests
-        run: python3 -m unittest discover -s tests -v
-      - name: Stage only zero-stock UNPUBLISHED offers
-        env:
-          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
-          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
-          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
-          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
-        run: python3 stage_choice_wholesale.py
+      - name: Respect Amazon-only sourcing policy
+        run: echo "Legacy non-Amazon staging is disabled. No offers created or published."
