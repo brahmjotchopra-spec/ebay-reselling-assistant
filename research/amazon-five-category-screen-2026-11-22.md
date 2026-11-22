@@ -2,6 +2,8 @@
 
 **Purpose:** first five distinctly categorised Amazon UK products for a smartvaluestore-style eBay catalogue. This is a commercial SCREEN, not a declaration that five profitable/stocked items were found.
 
+**User stock check, 22 Nov 2026:** MONASAY iPhone 17 Pro Max privacy glass (B0FMR51D72) showed **only 1 left in stock** to the user. LOW STOCK / HOLD for repeatable catalogue; do not order or publish without stock ownership, Locker/price/postage verification. Exact stock may change.
+
 **Publishing status:** NONE approved to go live. Amazon UK offer prices below are indicative public product-search results, **not checkout-confirmed**, and Amazon Locker pickup/stock ownership/actual packed weights/photograph rights have NOT been established. Do not create buyer-orderable listings or make any supplier purchases without explicit approval. Never send an Amazon retail purchase straight to an eBay buyer.
 
 **Conservative scenario fee model (estimates, NOT verified seller charges):** eBay commission + regulatory fees + fee VAT proxy = 14.7% of item sale, plus £0.36 fixed; insertion £0.36; packaging £0.15; refund allowance £0.20. Royal Mail letter/large-letter/parcel charges are dimension-dependent; use £1.90 large-letter or £3.99 parcel where applicable, but actual scale and thickness must be checked. Source costs are assumed tax-inclusive and no discount; return loss and inbound shipping not fully modelled.
