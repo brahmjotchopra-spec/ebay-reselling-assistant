@@ -43,3 +43,19 @@ Public seller: https://www.ebay.co.uk/itm/198663715826
 | Proof | eBay listing ID or offer ID, GitHub workflow run log and verification after every change |
 
 Do not publish any candidate on the basis of this research note alone.
+
+
+## Amazon-only sourcing rule (user direction, 22 Nov 2026)
+The buyer has explicitly required **Amazon UK only**, with Locker/Counter collection where eligible. Do not add products sourced from Choice Wholesale or other wholesalers to this Amazon resale workflow. No Amazon-to-eBay retail dropshipping: collect and hold stock before any public listing. Photograph exact owned units, verify sizes/packaging, count them accurately.
+
+### Evidence-led category screening, November 22
+- **Cable clips, 20-pack:** eBay competitors at £2.40 for 20 (563 sold) and £3.69 for 20 (1,249 sold): https://www.ebay.co.uk/itm/167383490440 and https://www.ebay.co.uk/itm/277441398177. Amazon product query returned 100 clips for £4.59, or £0.92 per 20 before packing/fees, a likely **reject** at the low eBay selling price. Do not stage until profit confirmed.
+- **Mini hair claw clips:** 20 black mini hair claws listed £3.69 and 361 recorded sales; variants at £3.49, 759 recorded sales: https://www.ebay.co.uk/itm/174710928373 and https://www.ebay.co.uk/itm/267284524770. Amazon 50 mini star clips product-search quote £4.99, not exact competitor match. Potential small bundle to test, but postage thickness and exact style/size/colour must be checked. **HOLD**.
+- **Kraft gift tags:** 50-pack competitor £2.79 / 86+ recorded sales; highly competitive multivariation https://www.ebay.co.uk/itm/323435516175 with much larger all-time sales. Amazon search result for 200-paper-tag product from £3.79 was not tied to a verified checkout ASIN. **HOLD**, not viable yet.
+- **Silicone six-piece kitchen utensils:** eBay examples as low as £3.36/£3.97 for six, with some higher-price variations: https://www.ebay.co.uk/shop/silicon-kitchen-utensil-set?_nkw=silicon+kitchen+utensil+set . Larger size/postage costs suggest retail Amazon sourcing **REJECT** unless exact SKU has documented spread after fees.
+- **Earphones:** smartvaluestore listing screenshot showed £4.94, but UK eBay wired earphone competition can be well below £3. Reject unless exact Amazon buy cost, specification and certified safety make a positive margin demonstrable.
+
+### Publication checklist
+For each different product, record exact Amazon ASIN URL, exact variant and sellable quantity, current delivered cost and Locker checkout confirmation, eBay *matching* competition/sold evidence, packed weight and dimensions, full postage, eBay fee and VAT where relevant, packaging, reserve, and margin >= £0.50 per sale. Before going live, stock must be purchased/collected and owned, real matching photographs or licensed images available, and business seller policies correct. Stage as an unpublished/stock-zero offer only if user requests staging; no automatic public listing when these conditions are missing.
+
+**Working catalogue goal:** diverse 5–10 compliant products initially, rather than repeatedly listing only craft multipacks. Expand towards 20–50 after actual sales validate economics. No promise of sales or guaranteed profit.
