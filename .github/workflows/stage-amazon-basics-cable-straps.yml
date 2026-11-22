@@ -5,6 +5,7 @@ on:
     paths:
       - 'stage_amazon_basics_cable_straps.py'
       - '.github/workflows/stage-amazon-basics-cable-straps.yml'
+      - 'assets/cable-straps/**'
   workflow_dispatch:
 permissions:
   contents: read
