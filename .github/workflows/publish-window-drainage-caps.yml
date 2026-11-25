@@ -4,9 +4,10 @@ on:
     branches: [main]
     paths:
       - 'assets/window-drainage-caps/window_caps_gallery.jpg'
+      - '.github/workflows/publish-window-drainage-caps.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: ebay-uk-amazon-stage
   cancel-in-progress: false
@@ -16,8 +17,20 @@ jobs:
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          persist-credentials: false
+      - name: Verify and install exact cropped JPEG
+        run: |
+          set -euo pipefail
+          path=assets/window-drainage-caps/window_caps_gallery.jpg
+          base64 --decode assets/window-drainage-caps/gallery.jpg.b64 > "$path"
+          echo "bb4fe194430147f817d2d9888efb1ea9593bbb224884a09823699c0e9df6b266  $path" | sha256sum --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$path"
+          if ! git diff --cached --quiet; then
+            git commit -m "Install verified drainage cap product JPEG"
+            git push origin HEAD:main
+          fi
+          echo "IMAGE_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Publish four owned 25-packs at GBP 10.99 and verify
         env:
           EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
