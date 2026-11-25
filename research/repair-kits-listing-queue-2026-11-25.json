@@ -1,0 +1,58 @@
+{
+  "status": "LOCAL_REPOSITORY_DRAFTS_ONLY_NOT_EBAY_OFFERS",
+  "date": "2026-11-25",
+  "publish": false,
+  "available_quantity": 0,
+  "requirements": [
+    "Written supplier fitment confirmation and part specifications",
+    "Sample received, installed or fitment verified; packaging and photos accurate",
+    "Confirmed stock on hand and collection or approved delivery route",
+    "Actual category fees, measured packed dimensions and postage",
+    "At least £5 projected contribution per sale at competitive delivered price; check actual recent sold prices",
+    "Do not copy seller images or descriptions; do not publish on uncertain stock"
+  ],
+  "assumptions": {
+    "variable_fee_percent": 14.7,
+    "fixed_fees_gbp": 0.72,
+    "postage_gbp": 1.9,
+    "packaging_gbp": 0.15,
+    "reserve_gbp": 0.2,
+    "minimum_contribution_gbp": 5
+  },
+  "drafts": [
+    {
+      "sku": "AUTO-FORD-KA-MK2-SHELF-REPAIR-PAIR",
+      "title": "Ford KA Mk2 Parcel Shelf Hinge Peg Repair Kit Pair Rear Boot Cover",
+      "description": "Aftermarket pair of repair pieces for damaged parcel shelf attachment pegs on compatible Ford KA Mk2 vehicles. Check the original hinge design against the supplied dimensions and compatibility information before purchase. Two repair pieces only; parcel shelf not included. Finalise material, fitting instructions, vehicle years, and included hardware after checking supplier sample.",
+      "target_price_gbp": 10.49,
+      "max_landed_cost_gbp": 0.98,
+      "competitor": "https://www.ebay.co.uk/itm/127008801503",
+      "competitor_asking_gbp": 10.66,
+      "competitor_cumulative_sold": 200,
+      "quantity": 0
+    },
+    {
+      "sku": "AUTO-FORD-FIESTA-SHELF-REPAIR-PAIR",
+      "title": "Ford Fiesta Parcel Shelf Hinge Peg Repair Kit Pair Rear Boot Cover Fix",
+      "description": "Pair of aftermarket repair pieces intended for damaged shelf attachment points on the compatible Ford Fiesta models specified in the final listing. Confirm exact generation, year, door configuration and attachment dimensions; do not assume all 2008–2016 versions fit. Shelf not included. Confirm material and fitting method after sample inspection.",
+      "target_price_gbp": 10.79,
+      "max_landed_cost_gbp": 1.23,
+      "competitor": "https://www.ebay.co.uk/itm/127008998955",
+      "competitor_asking_gbp": 10.84,
+      "competitor_cumulative_sold": 108,
+      "quantity": 0
+    },
+    {
+      "sku": "AUTO-MERCEDES-W177-SHELF-REPAIR-PAIR",
+      "title": "Mercedes A Class W177 Parcel Shelf Hinge Repair Kit Rear Boot Cover Clips",
+      "description": "Aftermarket repair kit intended for the parcel shelf hinge on compatible Mercedes A-Class W177 hatchbacks. Confirm vehicle fitment, kit contents and hinge geometry with supplier before publication. No parcel shelf or OEM affiliation implied. No B-Class compatibility claim until confirmed.",
+      "target_price_gbp": 8.75,
+      "max_landed_cost_gbp": null,
+      "competitor": "https://www.ebay.co.uk/itm/125846341228",
+      "competitor_asking_gbp": 8.75,
+      "competitor_cumulative_sold": 354,
+      "quantity": 0,
+      "hold_reason": "Even zero product cost leaves less than £5 under current fee and postage assumptions; requires lower measured postage or higher supported resale price."
+    }
+  ]
+}
