@@ -1,0 +1,27 @@
+name: Publish owned white window drainage caps
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/window-drainage-caps/window_caps_gallery.jpg'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Publish four owned 25-packs at GBP 10.99 and verify
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 publish_window_drainage_caps.py
