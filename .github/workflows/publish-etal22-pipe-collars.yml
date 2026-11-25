@@ -1,0 +1,42 @@
+name: Publish owned ETAL 22mm white pipe collars
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-etal22-pipe-collars.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ebay-uk-amazon-stage
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Decode and verify both product images
+        run: |
+          set -euo pipefail
+          cd assets/etal22
+          base64 --decode pack.jpg.b64 > pack.jpg
+          base64 --decode detail.jpg.b64 > detail.jpg
+          echo "adb9f2d9b65e78c1cc13f8ed5c5f12afb05d3cfc7131ef77ab3a931bf52f11fe  pack.jpg" | sha256sum --check
+          echo "72b549a561ff3cb9da85ff3f62b48bb5a3e2dae61f481be0e6a9547d1ef2a80c  detail.jpg" | sha256sum --check
+          cd ../..
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/etal22/pack.jpg assets/etal22/detail.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Install verified ETAL 22mm product images"
+            git push origin HEAD:main
+          fi
+          echo "IMAGE_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Publish exactly one pack at GBP 7.49 and verify
+        env:
+          EBAY_ACCESS_TOKEN: ${{ secrets.EBAY_ACCESS_TOKEN }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: python3 publish_etal22_pipe_collars.py
