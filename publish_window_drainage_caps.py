@@ -1,5 +1,7 @@
 """Publish only the seller-confirmed four 25-cap packs, after approved image upload."""
 import json
+import os
+import time
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
@@ -12,9 +14,9 @@ TITLE="25x White uPVC Window Drainage Caps 40mm Weep Hole Covers Replacement Cli
 DESCRIPTION=("25 white plastic clip-in replacement drainage hole covers for compatible uPVC window frames. "
  "Approximate supplier dimensions: 40 mm length, 6.5 mm cover height, 12 mm overall height including clips. "
  "Compare the shape, dimensions and clip spacing with your original covers before ordering. Not a universal fit. "
- "Each order contains 25 new caps, repacked from bulk stock. Product illustration shows the design, not the number supplied.")
+ "Each order contains 25 new caps, repacked from bulk stock. Cropped supplier reference image shows the design, not the number supplied.")
 IMAGE_PATH="assets/window-drainage-caps/window_caps_gallery.jpg"
-IMAGE_URL="https://raw.githubusercontent.com/brahmjotchopra-spec/ebay-reselling-assistant/main/"+IMAGE_PATH
+IMAGE_URL="https://raw.githubusercontent.com/brahmjotchopra-spec/ebay-reselling-assistant/"+os.environ.get("IMAGE_COMMIT","main")+"/"+IMAGE_PATH
 REFERENCE_SKU="DRAFT-HOME-MICROFIBRE20"
 FIELDS=("paymentPolicyId","returnPolicyId","fulfillmentPolicyId")
 
@@ -37,9 +39,14 @@ def main():
     local=Path(IMAGE_PATH)
     if not local.is_file() or local.read_bytes()[:3]!=bytes.fromhex("ffd8ff"):
         raise DraftError("Approved JPEG missing. No eBay write performed.")
-    with urlopen(Request(IMAGE_URL,headers={"User-Agent":"Mozilla/5.0"}),timeout=20) as resp:
-        if resp.read()!=local.read_bytes():
-            raise DraftError("Public gallery does not match approved file.")
+    for attempt in range(5):
+        try:
+            with urlopen(Request(IMAGE_URL,headers={"User-Agent":"Mozilla/5.0"}),timeout=20) as resp:
+                if resp.read()==local.read_bytes(): break
+        except OSError:
+            pass
+        if attempt==4: raise DraftError("Public gallery does not match approved file.")
+        time.sleep(4)
     token=get_token()
     api=Inventory(token)
     api.check_access()
