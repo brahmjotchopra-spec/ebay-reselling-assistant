@@ -1,0 +1,13 @@
+# Ring Battery Video Doorbell 2K + Indoor Camera (2nd Gen)
+25 November 2026 — user reports purchasing the Amazon bundle. Receipt/physical possession, colour, sealed condition, exact checkout total and photographs not yet confirmed. No live offer, no API mutation. Quantity available for publication: 0 until collection. Intended quantity 1 after checks.
+
+## Draft
+SKU: DRAFT-AMZ-RING-2K-INDOOR2-BUNDLE-1
+Title: Ring Battery Video Doorbell 2K + Indoor Camera 2nd Gen Bundle WiFi New
+Provisional Buy It Now: £64.99, tracked UK delivery included. Brand Ring; condition NEW only after verifying unopened retail packaging. Verify colour, EAN, model numbers and category against received boxes. No images until actual product photos or authorized catalogue images available.
+
+Description: Ring home security bundle containing one Ring Battery Video Doorbell 2K and one Ring Indoor Camera (2nd Gen). The doorbell supports 2K video, motion notifications, live view and two-way audio; the indoor camera provides indoor HD monitoring. Compatible Wi-Fi and Ring app required. Optional subscription required for recording/storage features. Confirm packaging and included accessories before publishing. Do not claim any transferable subscription or manufacturer warranty without verification.
+
+## Commercial notes
+Amazon source https://www.amazon.co.uk/dp/B0GTZNKPBN, advertised £39.99. User says purchased; actual final receipt cost not independently confirmed. Ring's own website currently advertises the same bundle £39.99, promotion through 1 Dec 2026 while stocks last: https://en-uk.ring.com/products/battery-doorbell-2nd-gen/ . Therefore £64.99 is a speculative post-promotion price, not a proven current achievable sale. Comparable October sold page https://www.ebay.co.uk/itm/278426812089 ; active competition https://www.ebay.co.uk/shop/ring-doorbell-bundle?_nkw=ring+doorbell+bundle shows comparable asking £59.46, not a verified sale. Recheck market after promotion before publishing, or consider returning within applicable terms if margin not achievable. No additional purchases recommended.
+At £64.99 assumed cost £39.99, fees £10.27, shipping/packing £3.83, reserve £0.50 => £10.40 contribution before tax; actual fee/postage and battery carriage eligibility must be verified. Approximate minimum £58.66 with same fee assumptions for £5 contribution. Do not use a less secure delivery service simply to meet margin. Check carrier restrictions for lithium battery installed in equipment. No publication until stock, exact variant, photography, actual cost, postage, current competition and margin are confirmed; check existing offers for duplicate SKU.
