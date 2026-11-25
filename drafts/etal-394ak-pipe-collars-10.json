@@ -4,7 +4,7 @@
   "description": "One pack of 10 new white ETAL snap-on pipe collars for pipes with a 22 mm outside diameter. Designed to cover gaps around pipework at floor or wall level. Supplier diagram dimensions: 22 mm opening, 67 mm outside diameter, 12 mm height. Check your pipe diameter before ordering. Collars only.",
   "condition": "NEW",
   "price_gbp": "7.49",
-  "available_quantity": 0,
+  "available_quantity": 1,
   "pack_size": 10,
   "source_url": "https://www.screwfix.com/p/etal-22mm-pipe-collars-white-10-pack/394ak",
   "source_cost_gbp": "2.34",
@@ -29,9 +29,9 @@
   },
   "publication_status": "HOLD",
   "hold_reasons": [
-    "Confirm physical stock quantity",
-    "Supplier image reuse permission and gallery upload not confirmed",
-    "Confirm packed postage rate"
+    "Gallery transfer and supplier image reuse permission not confirmed",
+    "Packed postage rate estimated"
   ],
-  "reviewed_on": "2026-11-25"
+  "reviewed_on": "2026-11-25",
+  "stock_confirmed_by_seller": 1
 }
